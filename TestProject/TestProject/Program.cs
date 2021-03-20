@@ -2,12 +2,10 @@
 
 namespace TestProject
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine("Hello World!");
-
             Console.WriteLine("This line was added by me. Can you see this?");
         }
     }
