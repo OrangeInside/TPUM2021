@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Models
+namespace Data
 {
     class OrdersCollection : IItemCollection<Order>
     {

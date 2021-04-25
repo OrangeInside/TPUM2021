@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Models
+namespace Data
 {
-    class Order : IData
+    public class Order : IData
     {
         public int ID { get; set; }
         public int ClientID { get; set; }
