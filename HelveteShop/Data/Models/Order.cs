@@ -4,16 +4,27 @@ using System.Text;
 
 namespace Data
 {
-    public class Order : IData
+    public class Order
     {
-        public int ID { get; set; }
-        public int ClientID { get; set; }
+        public Guid guid { get; }
+        public List<Vinyl> vinyls { get; set; }
+        public Client client { get; set; }
 
-        public List<Vinyl> vinyls;
-
-        public object Clone()
+        public Order(Client client, List<Vinyl> vinyls)
         {
-            return new Order() { ID = ID, ClientID = ClientID, vinyls = vinyls };
+            this.guid = Guid.NewGuid();
+            this.client = client;
+            this.vinyls = vinyls;
+        }
+
+        public override string ToString()
+        {
+            string orderInfo = "";
+            orderInfo += "Guid: " + guid;
+            orderInfo += "\tVinyls: " + vinyls;
+            orderInfo += "\tClient: " + client;
+
+            return orderInfo;
         }
     }
 }

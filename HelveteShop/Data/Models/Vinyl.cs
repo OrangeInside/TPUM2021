@@ -4,16 +4,26 @@ using System.Text;
 
 namespace Data
 {
-    public class Vinyl : IData
+    public class Vinyl
     {
-        public int ID { get; set; }
-        public string Title { get; set; }
-        public string Band { get; set; }
-        public decimal Price { get; set; }
-
-        public object Clone()
+        public string title { get; }
+        public string band { get; }
+        public decimal price { get; set; }
+        
+        public Vinyl(string title, string band, decimal price)
         {
-            return new Vinyl() { ID = ID, Title = Title, Band = Band, Price = Price };
+            this.title = title;
+            this.band = band;
+            this.price = price;
+        }
+
+        public override string ToString()
+        {
+            string vinylInfo = "";
+            vinylInfo += "Title: " + title;
+            vinylInfo += "\tBand: " + band;
+            vinylInfo += "\tPrice: " + price + " PLN";
+            return vinylInfo;
         }
     }
 }

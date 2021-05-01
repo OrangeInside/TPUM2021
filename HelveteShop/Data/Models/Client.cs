@@ -4,14 +4,25 @@ using System.Text;
 
 namespace Data
 {
-    public class Client : IData
+    public class Client
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Adress { get; set; }
-        public object Clone()
+        public string name { get;}
+        public string address { get; set; }
+
+        public Client(string name, string address)
         {
-            return new Client() { ID = ID, Name = Name, Adress = Adress };
+            this.name = name;
+            this.address = address;
         }
+
+        public override string ToString()
+        {
+            string clientInfo = "";
+            clientInfo += "Name: " + name;
+            clientInfo += "\tAddress: " + address;
+
+            return clientInfo;
+        }
+
     }
 }

@@ -16,15 +16,15 @@ namespace Data
             Clients = new List<Client>();
             Orders = new List<Order>();
 
-            Vinyls.Add(new Vinyl { Title = "Filosofem", Band = "Burzum", Price = 5.99M });
-            Vinyls.Add(new Vinyl { Title = "Transylvanian Hunger", Band = "Darkthrone", Price = 3.99M });
-            Vinyls.Add(new Vinyl { Title = "De Mysteriis Dom Sathanas", Band = "Mayhem", Price = 4.99M });
-            Vinyls.Add(new Vinyl { Title = "Black Metal", Band = "Venom", Price = 2.99M });
-            Vinyls.Add(new Vinyl { Title = "With Hearts Toward None", Band = "Mgla", Price = 1.99M });
+            Vinyls.Add(new Vinyl { title = "Filosofem", band = "Burzum", price = 5.99M });
+            Vinyls.Add(new Vinyl { title = "Transylvanian Hunger", band = "Darkthrone", price = 3.99M });
+            Vinyls.Add(new Vinyl { title = "De Mysteriis Dom Sathanas", band = "Mayhem", price = 4.99M });
+            Vinyls.Add(new Vinyl { title = "Black Metal", band = "Venom", price = 2.99M });
+            Vinyls.Add(new Vinyl { title = "With Hearts Toward None", band = "Mgla", price = 1.99M });
 
-            Clients.Add(new Client { Name = "Andrew", Adress = "Milorgveien 121" });
-            Clients.Add(new Client { Name = "Kjetil", Adress = "Grenaderveien 128" });
-            Clients.Add(new Client { Name = "Jon", Adress = "Tappenhaugen 124" });
+            Clients.Add(new Client { Name = "Andrew", address = "Milorgveien 121" });
+            Clients.Add(new Client { Name = "Kjetil", address = "Grenaderveien 128" });
+            Clients.Add(new Client { Name = "Jon", address = "Tappenhaugen 124" });
 
             Orders.Add(new Order { ClientID = Clients[0].ID, vinyls = new List<Vinyl>() { Vinyls[2] } });
         }
