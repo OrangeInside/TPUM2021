@@ -6,6 +6,6 @@ namespace Data
 {
     public interface IData : ICloneable
     {
-        public int ID { get; set; }
+        int ID { get; set; }
     }
 }

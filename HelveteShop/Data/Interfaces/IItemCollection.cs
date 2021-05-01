@@ -6,9 +6,9 @@ namespace Data
 {
     public interface IItemCollection<T>
     {
-        public void Add(T item);
-        public bool Remove(T item);
-        public T[] GetAll();
-        public T GetItemByID(int id);
+        void Add(T item);
+        bool Remove(T item);
+        T[] GetAll();
+        T GetItemByID(int id);
     }
 }
