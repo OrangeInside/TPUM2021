@@ -4,40 +4,40 @@ using System.Text;
 
 namespace Data
 {
-    class OrdersCollection : IItemCollection<Order>
-    {
-        private List<Order> orders = new List<Order>();
+    //class OrdersCollection : IItemCollection<Order>
+    //{
+    //    private List<Order> orders = new List<Order>();
 
-        public void Add(Order item)
-        {
-            orders.Add(item);
-        }
+    //    public void Add(Order item)
+    //    {
+    //        orders.Add(item);
+    //    }
 
-        public Order[] GetAll()
-        {
-            return orders.ToArray();
-        }
+    //    public Order[] GetAll()
+    //    {
+    //        return orders.ToArray();
+    //    }
 
-        public Order GetItemByID(int id)
-        {
-            foreach (Order o in orders)
-            {
-                if (o.ID == id)
-                    return o;
-            }
+    //    public Order GetItemByID(int id)
+    //    {
+    //        foreach (Order o in orders)
+    //        {
+    //            if (o.ID == id)
+    //                return o;
+    //        }
 
-            return null;
-        }
+    //        return null;
+    //    }
 
-        public bool Remove(Order item)
-        {
-            if (orders.Contains(item))
-            {
-                orders.Remove(item);
-                return true;
-            }
+    //    public bool Remove(Order item)
+    //    {
+    //        if (orders.Contains(item))
+    //        {
+    //            orders.Remove(item);
+    //            return true;
+    //        }
 
-            return false;
-        }
-    }
+    //        return false;
+    //    }
+    //}
 }

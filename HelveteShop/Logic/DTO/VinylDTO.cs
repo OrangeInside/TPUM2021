@@ -8,6 +8,6 @@ namespace Logic.DTO
     {
         public string title { get; set; }
         public string band { get; set; }
-        public float price { get; set; }
+        public decimal price { get; set; }
     }
 }
