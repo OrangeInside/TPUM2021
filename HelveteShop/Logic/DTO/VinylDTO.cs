@@ -6,8 +6,8 @@ namespace Logic.DTO
 {
     public class VinylDTO
     {
-        public string title { get; set; }
-        public string band { get; set; }
-        public decimal price { get; set; }
+        public string Title { get; set; }
+        public string Band { get; set; }
+        public decimal Price { get; set; }
     }
 }

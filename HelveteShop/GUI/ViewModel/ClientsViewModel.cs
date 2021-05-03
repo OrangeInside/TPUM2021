@@ -13,12 +13,15 @@ namespace GUI.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ClientsManager clientsManager = null;
+        private VinylsManager vinylsManager = null;
 
         public ClientsViewModel()
         {
             clientsManager = new ClientsManager();
+            vinylsManager = new VinylsManager();
         }
 
         public ObservableCollection<ClientDTO> Clients => new ObservableCollection<ClientDTO>(clientsManager?.GetAllClientsAsDTO());
+        public ObservableCollection<VinylDTO> Vinyls => new ObservableCollection<VinylDTO>(vinylsManager?.GetAllVinylsAsDTO());
     }
 }

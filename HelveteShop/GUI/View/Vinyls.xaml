@@ -4,11 +4,32 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GUI.View"
+      xmlns:vm="clr-namespace:GUI.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Vinyls">
 
-    <Grid>
-        
+    <Page.Resources>
+        <vm:ClientsViewModel x:Key="vinylsVM"/>
+    </Page.Resources>
+
+    <Grid x:Name="VinylsPanel" DataContext="{StaticResource vinylsVM}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="vinylsList" ItemsSource="{Binding Vinyls}" SelectedItem="{Binding SelectedUser}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                    <GridViewColumn Header="Band" DisplayMemberBinding="{Binding Band}" Width="150"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
+
+
+
 </Page>
