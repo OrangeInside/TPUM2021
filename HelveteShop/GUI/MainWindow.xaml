@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Helvete - Welcome in hell" Height="640" Width="1080">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Header-->
+        <Grid x:Name="headerGrid" Grid.Row="0" Background="DimGray">
+            <Button x:Name="clientsButton" Content="Clients" HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Center" Margin="10,0,0,0" Width="80" Height="20"
+                        Command=""/>
+            <Button x:Name="vinylsButton" Content="Vinyls" HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Center" Margin="100,0,0,0" Width="80" Height="20"
+                        Command=""/>
+            <Button x:Name="ordersButton" Content="Orders" HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Center" Margin="190,0,0,0" Width="80" Height="20"
+                        Command=""/>
+        </Grid>
 
+        <Grid x:Name="contentGrid" Grid.Row="1">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Side panel-->
+            <Frame Source="View/GeneralInfo.xaml" Grid.Column="0"/>
+
+            <Frame Source="View/Clients.xaml" Grid.Column="1" />
+
+        </Grid>
     </Grid>
 </Window>
