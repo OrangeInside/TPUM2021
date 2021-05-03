@@ -5,7 +5,7 @@ using System.Windows.Input;
 using Logic.Managers;
 using Logic;
 
-namespace GUI.ViewModel.Commands
+namespace GUI.ViewModel
 {
     public class CmdAddClient : ICommand
     {

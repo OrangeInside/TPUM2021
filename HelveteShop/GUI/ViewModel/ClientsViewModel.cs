@@ -23,7 +23,7 @@ namespace GUI.ViewModel
 
             clientsManager.OnRefreshClients += RefreshClients;
 
-            AddClientCmd = new Commands.CmdAddClient(this);
+            AddClientCmd = new CmdAddClient(this);
         }
 
         ~ClientsViewModel()
