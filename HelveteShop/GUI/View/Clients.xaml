@@ -22,7 +22,7 @@
         <ListView x:Name="clientsList" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedUser}">
             <ListView.View>
                 <GridView>
-                    <!--<GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="30"/>-->
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
                     <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="300"/>
                 </GridView>

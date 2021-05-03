@@ -10,10 +10,11 @@ namespace Data
         {
             DataContext data = new DataContext();
 
-            data.clients.Add(new Client("Odo", "Milorgveien 121"));
-            data.clients.Add(new Client("Varg", "Grenaderveien 128"));
-            data.clients.Add(new Client("Kjetil", "Camlann Place"));
-            data.clients.Add(new Client("Andrew", "Tappenhaugen 124"));
+            data.clients.Add(new Client(0, "Odo", "Milorgveien 121"));
+            data.clients.Add(new Client(1, "Varg", "Grenaderveien 128"));
+            data.clients.Add(new Client(2, "Kjetil", "Camlann Place"));
+            data.clients.Add(new Client(3, "Andrew", "Tappenhaugen 124"));
+            data.clients.Add(new Client(4, "DarkLordOfChaos666", "|m|> Hell <|m|"));
 
             data.vinyls.Add(new Vinyl("Filosofem", "Burzum", 5.99M ));
             data.vinyls.Add(new Vinyl("Transylvanian Hunger", "Darkthrone", 3.99M));

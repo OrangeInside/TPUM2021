@@ -12,6 +12,7 @@ namespace Logic
         {
             ClientDTO clientDTO = new ClientDTO
             {
+                ID = client.ID,
                 Name = client.name,
                 Address = client.address
             };

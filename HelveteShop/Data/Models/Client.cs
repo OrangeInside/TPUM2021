@@ -6,11 +6,13 @@ namespace Data
 {
     public class Client
     {
+        public int ID { get; }
         public string name { get;}
         public string address { get; set; }
 
-        public Client(string name, string address)
+        public Client(int id, string name, string address)
         {
+            this.ID = id;
             this.name = name;
             this.address = address;
         }
@@ -18,7 +20,8 @@ namespace Data
         public override string ToString()
         {
             string clientInfo = "";
-            clientInfo += "Name: " + name;
+            clientInfo += "ID: " + ID;
+            clientInfo += "\tName: " + name;
             clientInfo += "\tAddress: " + address;
 
             return clientInfo;

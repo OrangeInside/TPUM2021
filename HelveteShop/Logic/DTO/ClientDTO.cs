@@ -7,6 +7,7 @@ namespace Logic.DTO
 {
     public class ClientDTO
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public int Orders { get; set; }
