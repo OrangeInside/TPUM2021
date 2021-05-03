@@ -9,7 +9,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Clients">
 
-    <Grid x:Name="UsersPanel">
+    <Page.Resources>
+        <vm:ClientsViewModel x:Key="clientsVM"/>
+    </Page.Resources>
+
+    <Grid x:Name="UsersPanel" DataContext="{StaticResource clientsVM}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
@@ -18,8 +22,9 @@
         <ListView x:Name="clientsList" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedUser}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="30"/>
+                    <!--<GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="30"/>-->
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" Width="300"/>
                 </GridView>
             </ListView.View>
         </ListView>
