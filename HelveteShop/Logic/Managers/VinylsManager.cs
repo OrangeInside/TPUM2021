@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Logic.DTO;
 
 namespace Logic.Managers
 {
     using Data;
-    using Logic.DTO;
 
     public class VinylsManager
     {
