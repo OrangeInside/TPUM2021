@@ -24,5 +24,17 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void OnSetFrameWithClients(object sender, RoutedEventArgs e)
+        {
+            this.ClientsForm.Visibility = Visibility.Visible;
+            this.VinylsForm.Visibility = Visibility.Hidden;
+        }
+
+        private void OnSetFrameWithVinyls(object sender, RoutedEventArgs e)
+        {
+            this.ClientsForm.Visibility = Visibility.Hidden;
+            this.VinylsForm.Visibility = Visibility.Visible;
+        }
     }
 }
