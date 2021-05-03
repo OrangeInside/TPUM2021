@@ -19,7 +19,8 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="clientsList" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedUser}">
+        <!--First part: List of Clients-->
+        <ListView x:Name="clientsList" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedUser}" Grid.Column="0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
@@ -28,6 +29,44 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        
+        <!--Second part: Clients options-->
+        <Grid Grid.Column="1" Background="Gray">
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Foreground="DarkRed"
+                           Margin="0,15,0,0" Height="50" Width="180" TextAlignment="Center" FontWeight="Bold">
+                User Management
+            </TextBlock>
+
+            <Grid Margin="5, 40, 5, 20" >
+                
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" MaxHeight="50"/>
+                <RowDefinition Height="1*" MaxHeight="50"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+                
+            <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxHeight="40"
+                Content="Name:" FontWeight="Bold" FontStyle="Normal"/>
+            <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxHeight="40"
+                Content="Adress:" FontWeight="Bold"/>
+            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="40"
+                    Text="{Binding Name, Mode=TwoWay}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="40"
+                    Text="{Binding Address, Mode=TwoWay}"/>
+
+            <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,2,2,2" MaxHeight="20" MaxWidth="80"
+                Content="Add User" Command="{Binding AddClientCmd}"/>
+                
+            </Grid>
+        </Grid>
 
     </Grid>
+    
+    
+    
 </Page>

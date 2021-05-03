@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI.Pages
+namespace GUI.View
 {
     /// <summary>
     /// Interaction logic for GeneralInfo.xaml
