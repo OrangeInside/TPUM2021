@@ -9,6 +9,8 @@ namespace Logic.Managers
 
     public class VinylsManager
     {
+        public event Action OnRefreshClients;
+
         private DataBase dataBase = null;
 
         public VinylsManager()
