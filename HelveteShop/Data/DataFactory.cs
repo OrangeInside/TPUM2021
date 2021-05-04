@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Data
 {
-    public class Factory : IDataGenerator
+    public class DataFactory : IDataGenerator
     {
         public DataContext Generate()
         {

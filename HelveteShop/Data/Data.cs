@@ -20,7 +20,7 @@ namespace Data
 
         private static void CreateDataBase()
         {
-            dataBase = new DataBase(new Factory());
+            dataBase = new DataBase(new DataFactory());
         }
 
     }
