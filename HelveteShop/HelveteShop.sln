@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTests", "Tests\DataTest
 		{03D75FE6-8482-42B1-B857-962BECDC5449} = {03D75FE6-8482-42B1-B857-962BECDC5449}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicTests", "LogicTests\LogicTests.csproj", "{33639AB7-6C4B-4297-B02A-14576EC82BC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33639AB7-6C4B-4297-B02A-14576EC82BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33639AB7-6C4B-4297-B02A-14576EC82BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33639AB7-6C4B-4297-B02A-14576EC82BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33639AB7-6C4B-4297-B02A-14576EC82BC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
