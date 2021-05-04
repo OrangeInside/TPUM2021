@@ -16,7 +16,7 @@
 
         <TextBlock x:Name="TestText2" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Foreground="DarkRed"
                            Margin="0,40,0,0" Height="40" Width="160" TextAlignment="Center" FontWeight="Bold">
-                DarkLordOfChaos666
+                None
         </TextBlock>
 
     </Grid>
