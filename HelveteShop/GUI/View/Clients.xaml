@@ -45,21 +45,21 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" MaxHeight="50"/>
-                <RowDefinition Height="1*" MaxHeight="50"/>
+                <RowDefinition Height="1*" MaxHeight="35"/>
+                <RowDefinition Height="1*" MaxHeight="35"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-                
-            <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxHeight="40"
+
+                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="40"
                 Content="Name:" FontWeight="Bold" FontStyle="Normal"/>
-            <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxHeight="40"
+                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="40"
                 Content="Adress:" FontWeight="Bold"/>
-            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="40"
+                <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxHeight="40"
                     Text="{Binding Name, Mode=TwoWay}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="40"
+                <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" MaxHeight="40"
                     Text="{Binding Address, Mode=TwoWay}"/>
 
-            <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,2,2,2" MaxHeight="20" MaxWidth="80"
+                <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2,2,2,2" MaxHeight="20" MaxWidth="100"
                 Content="Add User" Command="{Binding AddClientCmd}"/>
                 
             </Grid>
