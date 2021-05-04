@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Logic.DTO
+namespace Logic
 {
     public class VinylDTO
     {

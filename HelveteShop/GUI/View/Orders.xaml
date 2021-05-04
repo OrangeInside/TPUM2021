@@ -59,9 +59,9 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Column="1" Background="Gray">
-            <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,2,2,2" MaxHeight="20" MaxWidth="80"
-                Content="Add Order" Command="{Binding AddOrderCmd}"/>
+        <Grid Grid.Column="1" Background="Gray" >
+            <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="2,2,2,2" MaxHeight="40" MaxWidth="100"
+                Content="Add Order" Command="{Binding AddOrderCmd}" />
         </Grid>
 
         <Grid Grid.Column="2"  Background="Gray">

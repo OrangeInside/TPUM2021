@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Text;
-using Logic.DTO;
-using Logic.Managers;
+﻿using System.ComponentModel;
+using Logic;
 using System.Windows.Input;
 using System.Windows;
-using Logic;
 
 namespace GUI.ViewModel
 {
