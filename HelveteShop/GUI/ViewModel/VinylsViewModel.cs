@@ -11,7 +11,7 @@ namespace GUI.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void RefreshVinyls() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));
 
-        private VinylsManager vinylsManager = null;
+        private IVinylsManager vinylsManager = null;
         public ICommand AddVinylCmd { get; set; } = null;
 
         public VinylsViewModel()

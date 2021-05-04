@@ -6,11 +6,11 @@ namespace Logic
 {
     public static class Logic
     {
-        private static ClientsManager clientsManager = null;
-        private static VinylsManager vinylsManager = null;
-        private static OrdersManager ordersManager = null;
+        private static IClientsManager clientsManager = null;
+        private static IVinylsManager vinylsManager = null;
+        private static IOrdersManager ordersManager = null;
 
-        public static ClientsManager GetClientsManager()
+        public static IClientsManager GetClientsManager()
         {
             if (clientsManager == null)
             {
@@ -19,7 +19,7 @@ namespace Logic
 
             return clientsManager;
         }
-        public static VinylsManager GetVinylsManager()
+        public static IVinylsManager GetVinylsManager()
         {
             if (vinylsManager == null)
             {
@@ -29,7 +29,7 @@ namespace Logic
             return vinylsManager;
         }
 
-        public static OrdersManager GetOrdersManager()
+        public static IOrdersManager GetOrdersManager()
         {
             if (ordersManager == null)
             {

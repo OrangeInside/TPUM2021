@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Data
 {
-    public partial class DataBase
+    public partial class DataBase : IDataBase
     {
         public DataContext dataContext;
 

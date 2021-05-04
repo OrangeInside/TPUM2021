@@ -6,9 +6,9 @@ namespace Data
 {
     public static class Data
     {
-        private static DataBase dataBase = null;
+        private static IDataBase dataBase = null;
 
-        public static DataBase GetDataBase()
+        public static IDataBase GetDataBase()
         {
             if (dataBase == null)
             {

@@ -10,7 +10,7 @@ namespace GUI.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void RefreshClients() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Clients"));
 
-        private ClientsManager clientsManager = null;
+        private IClientsManager clientsManager = null;
         public ICommand AddClientCmd { get; set; } = null;
 
         public ClientsViewModel()

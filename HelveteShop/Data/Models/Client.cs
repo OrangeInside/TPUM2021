@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Data
 {
-    public class Client
+    public class Client : IData
     {
         public int ID { get; }
         public string name { get;}

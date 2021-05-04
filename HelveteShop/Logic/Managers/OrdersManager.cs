@@ -6,11 +6,11 @@ namespace Logic
 {
     using Data;
 
-    public class OrdersManager
+    public class OrdersManager : IOrdersManager
     {
         public event Action OnRefreshOrders;
 
-        private DataBase dataBase = null;
+        private IDataBase dataBase = null;
 
         public OrdersManager()
         {

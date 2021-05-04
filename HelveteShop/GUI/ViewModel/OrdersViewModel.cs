@@ -10,9 +10,9 @@ namespace GUI.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void RefreshOrders() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Orders"));
 
-        private ClientsManager clientsManager = null;
-        private VinylsManager vinylsManager = null;
-        private OrdersManager ordersManager = null;
+        private IClientsManager clientsManager = null;
+        private IVinylsManager vinylsManager = null;
+        private IOrdersManager ordersManager = null;
 
         public ICommand AddOrderCmd { get; set; } = null;
 

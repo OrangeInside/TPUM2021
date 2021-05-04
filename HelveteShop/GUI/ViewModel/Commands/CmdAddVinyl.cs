@@ -9,7 +9,7 @@ namespace GUI.ViewModel
         public event EventHandler CanExecuteChanged;
 
         private VinylsViewModel vinylsViewModel = null;
-        private VinylsManager vinylsManager = null;
+        private IVinylsManager vinylsManager = null;
 
         public CmdAddVinyl(VinylsViewModel vvm)
         {

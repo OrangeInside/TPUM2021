@@ -9,7 +9,7 @@ namespace GUI.ViewModel
         public event EventHandler CanExecuteChanged;
 
         private OrdersViewModel ordersViewModel = null;
-        private OrdersManager ordersManager = null;
+        private IOrdersManager ordersManager = null;
 
         public CmdAddOrder(OrdersViewModel ovm)
         {

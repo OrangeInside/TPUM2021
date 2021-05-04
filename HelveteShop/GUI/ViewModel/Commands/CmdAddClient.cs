@@ -9,7 +9,7 @@ namespace GUI.ViewModel
         public event EventHandler CanExecuteChanged;
 
         private ClientsViewModel clientsViewModel = null;
-        private ClientsManager clientsManager = null;
+        private IClientsManager clientsManager = null;
 
         public CmdAddClient(ClientsViewModel cvm)
         {

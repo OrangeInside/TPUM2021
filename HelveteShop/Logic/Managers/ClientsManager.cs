@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Data;
 
 namespace Logic
 {
-    using Data;
-
-    public class ClientsManager
+    public class ClientsManager : IClientsManager
     {
         public event Action OnRefreshClients;
 
-        private DataBase dataBase = null;
+        private IDataBase dataBase = null;
 
         public ClientsManager()
         {
-            dataBase = Data.GetDataBase();
+            dataBase = Data.Data.GetDataBase();
         }
 
         public List<ClientDTO> GetAllClientsAsDTO()

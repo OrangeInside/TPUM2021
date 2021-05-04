@@ -6,11 +6,11 @@ namespace Logic
 {
     using Data;
 
-    public class VinylsManager
+    public class VinylsManager : IVinylsManager
     {
         public event Action OnRefreshVinyls;
 
-        private DataBase dataBase = null;
+        private IDataBase dataBase = null;
 
         public VinylsManager()
         {

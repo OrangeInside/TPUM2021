@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Data
 {
-    public class Order
+    public class Order : IData
     {
         public int ID { get; }
         public Vinyl vinyl { get; set; }
