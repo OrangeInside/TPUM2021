@@ -7,10 +7,16 @@
         xmlns:vm="clr-namespace:GUI.ViewModel"
         mc:Ignorable="d"
         Title="Helvete - Welcome in hell" Height="640" Width="1080">
+    
+    <Window.Resources>
+        <vm:MainWindowViewModel x:Key="mainVM"/>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="13*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         
         <!--Header-->
@@ -40,6 +46,19 @@
             <Frame Source="View/Orders.xaml" Grid.Column="1" x:Name="OrdersForm" NavigationUIVisibility="Hidden"/>
             <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm" NavigationUIVisibility="Hidden"/>
 
+        </Grid>
+
+        <!--popup info-->
+        <Grid Grid.Row="2" Background="Black" DataContext="{StaticResource mainVM}" Visibility="{Binding ShowPopupInfo}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="24*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="1" Text="{Binding PopupText}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red"/>
+            
+            <!--<Button Grid.Column="2" Content="X" Command="{Binding ClosePopupCommand}"/>-->
         </Grid>
     </Grid>
     
