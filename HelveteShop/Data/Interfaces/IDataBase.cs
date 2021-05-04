@@ -6,25 +6,27 @@ namespace Data
 {
     public interface IDataBase
     {
-        void AddClient(Client client);
-        void RemoveClient(Client client);
+        bool AddClient(Client client);
+        bool RemoveClient(Client client);
         Client GetClient(string name);
-        void UpdateClient(Client client);
+        Client GetClient(int id);
+        bool UpdateClient(Client client);
         IEnumerable<Client> GetAllClients();
 
 
-        void AddVinyl(Vinyl vinyl);
-        void RemoveVinyl(Vinyl vinyl);
+        bool AddVinyl(Vinyl vinyl);
+        bool RemoveVinyl(Vinyl vinyl);
         Vinyl GetVinyl(string title);
-        void UpdateVinyl(Vinyl vinyl);
+        Vinyl GetVinyl(int id);
+        bool UpdateVinyl(Vinyl vinyl);
         IEnumerable<Vinyl> GetAllVinyls();
 
 
-        void AddOrder(Order order);
-        void RemoveOrder(int order);
+        bool AddOrder(Order order);
+        bool RemoveOrder(int order);
         Order GetOrder(int id);
-        void UpdateOrder(Order order);
-        void AddOrderToArchive(Order order);
+        bool UpdateOrder(Order order);
+        bool AddOrderToArchive(Order order);
         IEnumerable<Order> GetAllOrders();
         IEnumerable<Order> GetAllArchiveOrders();
     }

@@ -7,7 +7,7 @@ namespace Data
 {
     public partial class DataBase : IDataBase
     {
-        public DataContext dataContext;
+        private DataContext dataContext;
 
         public DataBase(IDataGenerator dataGenerator)
         {
@@ -15,23 +15,27 @@ namespace Data
         }
 
         #region Clients
-        public void AddClient(Client client)
+        public bool AddClient(Client client)
         {
             if (dataContext.clients.Contains(client))
             {
-                throw new Exception("This collection already contains that object.");
+                return false;
             }
 
             dataContext.clients.Add(client);
+
+            return true;
         }
 
-        public void RemoveClient(Client client)
+        public bool RemoveClient(Client client)
         {
             if (!dataContext.clients.Contains(client))
             {
-                throw new Exception("Can't remove item that doesn't exist in given collection");
+                return false;
             }
             dataContext.clients.Remove(client);
+
+            return true;
         }
 
         public Client GetClient(string name)
@@ -39,16 +43,23 @@ namespace Data
             return dataContext.clients.Find(givenClient => (givenClient.name.Equals(name)));
         }
 
-        public void UpdateClient(Client client)
+        public Client GetClient(int id)
+        {
+            return dataContext.clients.Find(givenClient => (givenClient.ID.Equals(id)));
+        }
+
+        public bool UpdateClient(Client client)
         {
             Client clientFromDataBase = GetClient(client.name);
             
             if (clientFromDataBase == null)
             {
-                throw new Exception("There is no client with name " + clientFromDataBase.name);
+                return false;
             }
 
             clientFromDataBase.address = client.address;
+
+            return true;
         }
 
         public IEnumerable<Client> GetAllClients()
@@ -58,23 +69,27 @@ namespace Data
         #endregion
 
         #region Vinyls
-        public void AddVinyl(Vinyl vinyl)
+        public bool AddVinyl(Vinyl vinyl)
         {
             if (dataContext.vinyls.Contains(vinyl))
             {
-                throw new Exception("This collection already contains that object.");
+                return false;
             }
 
             dataContext.vinyls.Add(vinyl);
+
+            return true;
         }
 
-        public void RemoveVinyl(Vinyl vinyl)
+        public bool RemoveVinyl(Vinyl vinyl)
         {
             if (!dataContext.vinyls.Contains(vinyl))
             {
-                throw new Exception("Can't remove item that doesn't exist in given collection");
+                return false;
             }
             dataContext.vinyls.Remove(vinyl);
+
+            return true;
         }
 
         public Vinyl GetVinyl(string title)
@@ -82,15 +97,22 @@ namespace Data
             return dataContext.vinyls.Find(givenVinyl => (givenVinyl.title.Equals(title)));
         }
 
-        public void UpdateVinyl(Vinyl vinyl)
+        public Vinyl GetVinyl(int id)
+        {
+            return dataContext.vinyls.Find(givenVinyl => (givenVinyl.ID.Equals(id)));
+        }
+
+        public bool UpdateVinyl(Vinyl vinyl)
         {
             Vinyl vinylFromDataBase = GetVinyl(vinyl.title);
             
             if (vinylFromDataBase == null)
             {
-                throw new Exception("There is no vinyl with title " + vinylFromDataBase.title);
+                return false;
             }
             vinylFromDataBase.price = vinyl.price;
+
+            return true;
         }
 
         public IEnumerable<Vinyl> GetAllVinyls()
@@ -101,48 +123,57 @@ namespace Data
         #endregion
 
         #region Orders
-        public void AddOrder(Order order)
+        public bool AddOrder(Order order)
         {
             if (dataContext.orders.Contains(order))
             {
-                throw new Exception("This collection already contains that object.");
+                return false;
             }
 
             dataContext.orders.Add(order);
+
+            return true;
         }
 
-        public void RemoveOrder(int order)
+        public bool RemoveOrder(int order)
         {
             if (dataContext.orders.Count <= order)
             {
-                throw new Exception("Can't remove item that doesn't exist in given collection");
+                return false;
             }
             dataContext.orders.RemoveAt(order);
+
+            return true;
         }
 
         public Order GetOrder(int id)
         {
-            return (Order)dataContext.orders.Where(givenOrder => givenOrder.ID.Equals(id));
+           /// return (Order)dataContext.orders.Where(givenOrder => givenOrder.ID.Equals(id));
+            return dataContext.orders?.Find(x => x.ID == id);
         }
 
-        public void UpdateOrder(Order order)
+        public bool UpdateOrder(Order order)
         {
             Order orderFromDataBase = GetOrder(order.ID);
             if (orderFromDataBase == null)
             {
-                throw new Exception("There is no order with GUID " + orderFromDataBase.ID);
+                return false;
             }
             orderFromDataBase.vinyl = order.vinyl;
             orderFromDataBase.client = order.client;
+
+            return true;
         }
 
-        public void AddOrderToArchive(Order order)
+        public bool AddOrderToArchive(Order order)
         {
             if (dataContext.ordersArchive.Contains(order))
             {
-                throw new Exception("This collection already contains that object.");
+                return false;
             }
             dataContext.ordersArchive.Add(order);
+
+            return true;
         }
 
         public IEnumerable<Order> GetAllOrders()

@@ -3,15 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{07B9E353-D879-4314-9491-6385D03D48DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{07B9E353-D879-4314-9491-6385D03D48DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{03D75FE6-8482-42B1-B857-962BECDC5449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{03D75FE6-8482-42B1-B857-962BECDC5449}"
 	ProjectSection(ProjectDependencies) = postProject
 		{07B9E353-D879-4314-9491-6385D03D48DE} = {07B9E353-D879-4314-9491-6385D03D48DE}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{3B64CE46-3E8B-478E-A32A-0E6FC8152192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI", "GUI\GUI.csproj", "{3B64CE46-3E8B-478E-A32A-0E6FC8152192}"
 	ProjectSection(ProjectDependencies) = postProject
+		{03D75FE6-8482-42B1-B857-962BECDC5449} = {03D75FE6-8482-42B1-B857-962BECDC5449}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTests", "Tests\DataTests.csproj", "{5568F30A-13BF-48E6-8A30-D54CD2252B58}"
+	ProjectSection(ProjectDependencies) = postProject
+		{07B9E353-D879-4314-9491-6385D03D48DE} = {07B9E353-D879-4314-9491-6385D03D48DE}
 		{03D75FE6-8482-42B1-B857-962BECDC5449} = {03D75FE6-8482-42B1-B857-962BECDC5449}
 	EndProjectSection
 EndProject
@@ -33,6 +39,10 @@ Global
 		{3B64CE46-3E8B-478E-A32A-0E6FC8152192}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B64CE46-3E8B-478E-A32A-0E6FC8152192}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B64CE46-3E8B-478E-A32A-0E6FC8152192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
