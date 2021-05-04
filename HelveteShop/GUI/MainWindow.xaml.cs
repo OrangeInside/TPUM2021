@@ -29,12 +29,21 @@ namespace GUI.View
         {
             this.ClientsForm.Visibility = Visibility.Visible;
             this.VinylsForm.Visibility = Visibility.Hidden;
+            this.OrdersForm.Visibility = Visibility.Hidden;
         }
 
         private void OnSetFrameWithVinyls(object sender, RoutedEventArgs e)
         {
             this.ClientsForm.Visibility = Visibility.Hidden;
             this.VinylsForm.Visibility = Visibility.Visible;
+            this.OrdersForm.Visibility = Visibility.Hidden;
+        }
+
+        private void OnSetFrameWithOrders(object sender, RoutedEventArgs e)
+        {
+            this.ClientsForm.Visibility = Visibility.Hidden;
+            this.VinylsForm.Visibility = Visibility.Hidden;
+            this.OrdersForm.Visibility = Visibility.Visible;
         }
     }
 }

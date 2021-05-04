@@ -6,22 +6,22 @@ namespace Data
 {
     public class Order
     {
-        public Guid guid { get; }
-        public List<Vinyl> vinyls { get; set; }
+        public int ID { get; }
+        public Vinyl vinyl { get; set; }
         public Client client { get; set; }
 
-        public Order(Client client, List<Vinyl> vinyls)
+        public Order(int ID, Client client, Vinyl vinyl)
         {
-            this.guid = Guid.NewGuid();
+            this.ID = ID;
             this.client = client;
-            this.vinyls = vinyls;
+            this.vinyl = vinyl;
         }
 
         public override string ToString()
         {
             string orderInfo = "";
-            orderInfo += "Guid: " + guid;
-            orderInfo += "\tVinyls: " + vinyls;
+            orderInfo += "ID: " + ID;
+            orderInfo += "\tVinyl: " + vinyl;
             orderInfo += "\tClient: " + client;
 
             return orderInfo;

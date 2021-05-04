@@ -9,6 +9,7 @@ namespace Logic
     {
         private static ClientsManager clientsManager = null;
         private static VinylsManager vinylsManager = null;
+        private static OrdersManager ordersManager = null;
 
         public static ClientsManager GetClientsManager()
         {
@@ -27,6 +28,16 @@ namespace Logic
             }
 
             return vinylsManager;
+        }
+
+        public static OrdersManager GetOrdersManager()
+        {
+            if (ordersManager == null)
+            {
+                ordersManager = new OrdersManager();
+            }
+
+            return ordersManager;
         }
     }
 }

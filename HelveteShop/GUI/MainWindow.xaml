@@ -23,7 +23,7 @@
                         Command="" Click="OnSetFrameWithVinyls"/>
             <Button x:Name="ordersButton" Content="Orders" HorizontalAlignment="Left"
                         HorizontalContentAlignment="Center" Margin="190,0,0,0" Width="80" Height="20"
-                        Command=""/>
+                        Command="" Click="OnSetFrameWithOrders"/>
         </Grid>
 
         <Grid x:Name="contentGrid" Grid.Row="1">
@@ -36,8 +36,9 @@
             <!--Side panel-->
             <Frame Source="View/GeneralInfo.xaml" Grid.Column="0"/>
 
-            <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm" NavigationUIVisibility="Hidden"/>
             <Frame Source="View/Vinyls.xaml" Grid.Column="1" x:Name="VinylsForm" NavigationUIVisibility="Hidden"/>
+            <Frame Source="View/Orders.xaml" Grid.Column="1" x:Name="OrdersForm" NavigationUIVisibility="Hidden"/>
+            <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm" NavigationUIVisibility="Hidden"/>
 
         </Grid>
     </Grid>

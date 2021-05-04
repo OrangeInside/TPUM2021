@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <!--First part: List of Clients-->
-        <ListView x:Name="clientsList" ItemsSource="{Binding Clients}" SelectedItem="{Binding SelectedUser}" Grid.Column="0">
+        <ListView x:Name="clientsList" ItemsSource="{Binding Clients}" Grid.Column="0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>

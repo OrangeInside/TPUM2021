@@ -49,9 +49,14 @@ namespace Logic
         {
             OrderDTO orderDTO = new OrderDTO
             {
-                guid = order.guid,
-                vinyls = MapVinylList(order.vinyls),
-                client = Map(order.client),
+                ID = order.ID,
+                ClientID = order.client.ID,
+                ClientName = order.client.name,
+                ClientAddress = order.client.address,
+                VinylID = order.vinyl.ID,
+                VinylBand = order.vinyl.band,
+                VinylTitle = order.vinyl.title,
+                VinylPrice = order.vinyl.price
             };
 
             return orderDTO;

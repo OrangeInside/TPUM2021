@@ -120,19 +120,19 @@ namespace Data
             dataContext.orders.RemoveAt(order);
         }
 
-        public Order GetOrder(Guid guid)
+        public Order GetOrder(int id)
         {
-            return (Order)dataContext.orders.Where(givenOrder => givenOrder.guid.Equals(guid));
+            return (Order)dataContext.orders.Where(givenOrder => givenOrder.ID.Equals(id));
         }
 
         public void UpdateOrder(Order order)
         {
-            Order orderFromDataBase = GetOrder(order.guid);
+            Order orderFromDataBase = GetOrder(order.ID);
             if (orderFromDataBase == null)
             {
-                throw new Exception("There is no order with GUID " + orderFromDataBase.guid);
+                throw new Exception("There is no order with GUID " + orderFromDataBase.ID);
             }
-            orderFromDataBase.vinyls = order.vinyls;
+            orderFromDataBase.vinyl = order.vinyl;
             orderFromDataBase.client = order.client;
         }
 

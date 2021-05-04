@@ -19,7 +19,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="vinylsList" ItemsSource="{Binding Vinyls}" SelectedItem="{Binding SelectedVinyl}">
+        <ListView x:Name="vinylsList" ItemsSource="{Binding Vinyls}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
