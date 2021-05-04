@@ -6,12 +6,14 @@ namespace Data
 {
     public class Vinyl
     {
+        public int ID { get; set; }
         public string title { get; }
         public string band { get; }
         public decimal price { get; set; }
         
-        public Vinyl(string title, string band, decimal price)
+        public Vinyl(int ID, string title, string band, decimal price)
         {
+            this.ID = ID;
             this.title = title;
             this.band = band;
             this.price = price;

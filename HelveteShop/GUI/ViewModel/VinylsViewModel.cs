@@ -15,23 +15,81 @@ namespace GUI.ViewModel
         private void RefreshVinyls() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));
 
         private VinylsManager vinylsManager = null;
-        public ICommand AddClientCmd { get; set; } = null;
+        public ICommand AddVinylCmd { get; set; } = null;
 
         public VinylsViewModel()
         {
             vinylsManager = Logic.Logic.GetVinylsManager();
 
-            vinylsManager.OnRefreshClients += RefreshVinyls;
+            vinylsManager.OnRefreshVinyls += RefreshVinyls;
 
-           // AddClientCmd = new Commands.CmdAddClient(this);
+            AddVinylCmd = new CmdAddVinyl(this);
         }
 
         ~VinylsViewModel()
         {
-            vinylsManager.OnRefreshClients -= RefreshVinyls;
+            vinylsManager.OnRefreshVinyls -= RefreshVinyls;
         }
 
         public ObservableCollection<VinylDTO> Vinyls => new ObservableCollection<VinylDTO>(vinylsManager?.GetAllVinylsAsDTO());
+
+        #region Vinyl Management
+
+        private string title;
+        private string band;
+        private string price;
+
+        public string Title
+        {
+            get => title;
+
+            set
+            {
+                title = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Title"));
+            }
+        }
+
+        public string Band
+        {
+            get => band;
+
+            set
+            {
+                band = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Band"));
+            }
+        }
+
+        public string Price
+        {
+            get => price;
+
+            set
+            {
+                price = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
+        }
+
+        public void ClearUserInputs()
+        {
+            Title = "";
+            Band = "";
+            Price = "";
+        }
+
+        public VinylDTO CreateVinylDTO()
+        {
+            return new VinylDTO
+            {
+                Title = this.Title,
+                Band = this.Band,
+                Price = Decimal.Parse(this.Price)
+            };
+        }
+
+        #endregion
 
     }
 

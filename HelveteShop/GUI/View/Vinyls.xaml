@@ -19,15 +19,56 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="vinylsList" ItemsSource="{Binding Vinyls}" SelectedItem="{Binding SelectedUser}">
+        <ListView x:Name="vinylsList" ItemsSource="{Binding Vinyls}" SelectedItem="{Binding SelectedVinyl}">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
                     <GridViewColumn Header="Band" DisplayMemberBinding="{Binding Band}" Width="150"/>
                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <Grid Grid.Column="1" Background="Gray">
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Foreground="DarkRed"
+                           Margin="0,15,0,0" Height="50" Width="180" TextAlignment="Center" FontWeight="Bold">
+                Vinyl Management
+            </TextBlock>
+
+            <Grid Margin="5, 40, 5, 20" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" MaxHeight="50"/>
+                    <RowDefinition Height="1*" MaxHeight="50"/>
+                    <RowDefinition Height="1*" MaxHeight="50"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxHeight="40"
+                Content="Title:" FontWeight="Bold" FontStyle="Normal"/>
+                <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxHeight="40"
+                Content="Band:" FontWeight="Bold"/>
+                <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxHeight="40"
+                Content="Price [x,yy]: " FontWeight="Bold"/>
+                
+                <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="40"
+                    Text="{Binding Title, Mode=TwoWay}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="40"
+                    Text="{Binding Band, Mode=TwoWay}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="40"
+                    Text="{Binding Price, Mode=TwoWay}"/>
+
+                <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,2,2,2" MaxHeight="20" MaxWidth="80"
+                Content="Add Vinyl" Command="{Binding AddVinylCmd}"/>
+
+            </Grid>
+        </Grid>
     </Grid>
 
 

@@ -24,9 +24,10 @@ namespace Logic
         {
             VinylDTO vinylDTO = new VinylDTO
             {
+                ID = vinyl.ID,
                 Title = vinyl.title,
                 Band = vinyl.band,
-                Price = vinyl.price,
+                Price = vinyl.price
             };
 
             return vinylDTO;

@@ -36,7 +36,7 @@
             <!--Side panel-->
             <Frame Source="View/GeneralInfo.xaml" Grid.Column="0"/>
 
-            <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm"/>
+            <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm" NavigationUIVisibility="Hidden"/>
             <Frame Source="View/Vinyls.xaml" Grid.Column="1" x:Name="VinylsForm" NavigationUIVisibility="Hidden"/>
 
         </Grid>

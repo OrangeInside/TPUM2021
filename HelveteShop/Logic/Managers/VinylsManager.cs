@@ -9,7 +9,7 @@ namespace Logic.Managers
 
     public class VinylsManager
     {
-        public event Action OnRefreshClients;
+        public event Action OnRefreshVinyls;
 
         private DataBase dataBase = null;
 
@@ -30,6 +30,32 @@ namespace Logic.Managers
             return listToReturn;
         }
 
+        public bool AddVinyl(VinylDTO vinylToAdd)
+        {
+            if (vinylToAdd.Title != "" && vinylToAdd.Band != "")
+            {
+                List<VinylDTO> vinyls = GetAllVinylsAsDTO();
+
+                int idForVinyl = 0;
+
+                foreach (VinylDTO vinyl in vinyls)
+                {
+                    if (idForVinyl == vinyl.ID)
+                        idForVinyl++;
+                    else
+                        break;
+                }
+
+                Vinyl newVinylData = new Vinyl(idForVinyl, vinylToAdd.Title, vinylToAdd.Band, vinylToAdd.Price);
+
+                dataBase.AddVinyl(newVinylData);
+
+                OnRefreshVinyls?.Invoke();
+
+                return true;
+            }
+            return false;
+        }
     }
 }
 
