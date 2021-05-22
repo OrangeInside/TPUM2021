@@ -6,8 +6,8 @@ namespace CommonModel.Interfaces
 {
     public interface IVinyl : IData
     {
-        string title { get; }
-        string band { get; }
+        string title { get; set; }
+        string band { get; set; }
         decimal price { get; set; }
     }
 }

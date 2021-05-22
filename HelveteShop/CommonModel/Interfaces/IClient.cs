@@ -6,7 +6,7 @@ namespace CommonModel.Interfaces
 {
     public interface IClient : IData
     {
-        string name { get; }
+        string name { get; set; }
         string address { get; set; }
     }
 }

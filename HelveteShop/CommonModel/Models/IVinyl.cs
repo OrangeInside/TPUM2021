@@ -8,8 +8,8 @@ namespace CommonModel
     public class Vinyl : IVinyl
     {
         public int ID { get; set; }
-        public string title { get; }
-        public string band { get; }
+        public string title { get; set; }
+        public string band { get; set; }
         public decimal price { get; set; }
         
         public Vinyl(int ID, string title, string band, decimal price)

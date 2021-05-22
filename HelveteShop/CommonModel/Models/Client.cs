@@ -8,7 +8,7 @@ namespace CommonModel
     public class Client : IClient
     {
         public int ID { get; }
-        public string name { get;}
+        public string name { get; set; }
         public string address { get; set; }
 
         public Client(int id, string name, string address)

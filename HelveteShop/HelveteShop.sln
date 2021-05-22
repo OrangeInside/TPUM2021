@@ -32,6 +32,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientLogic", "ClientLogic\ClientLogic.csproj", "{E0BF4623-E62F-4F88-83FC-3448808C7F22}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientData", "ClientData\ClientData.csproj", "{5FD9EC8E-4DBB-426C-89C5-AF207EFCF8C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{08C01E1C-64EA-445D-B36E-5DC868B8658C} = {08C01E1C-64EA-445D-B36E-5DC868B8658C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonModel", "CommonModel\CommonModel.csproj", "{08C01E1C-64EA-445D-B36E-5DC868B8658C}"
 EndProject

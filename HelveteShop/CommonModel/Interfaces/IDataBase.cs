@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CommonModel.Interfaces;
 
-namespace CommonModel
+namespace CommonModel.Interfaces
 {
-    public interface IDataBase
+    public interface IDataBase<T> where T : IData
     {
+        void Add(T item);
+        bool Remove(T item);
+        T GetClient(int id);
+        bool Update(T item, int id);
+        IEnumerable<T> GetAll();
+
+        /*
         bool AddClient(IClient client);
         bool RemoveClient(IClient client);
         IClient GetClient(string name);
@@ -27,8 +33,9 @@ namespace CommonModel
         bool RemoveOrder(int order);
         IOrder GetOrder(int id);
         bool UpdateOrder(IOrder order);
-        bool AddOrderToArchive(IOrder order);
+        //bool AddOrderToArchive(IOrder order);
         IEnumerable<IOrder> GetAllOrders();
-        IEnumerable<IOrder> GetAllArchiveOrders();
+        //IEnumerable<IOrder> GetAllArchiveOrders();
+        */
     }
 }
