@@ -20,9 +20,11 @@ namespace ClientPresentation.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        ViewModel.MainWindowViewModel mainWindowViewModel { get; set; } = new ViewModel.MainWindowViewModel();
         public MainWindow()
         {
-            
+            InitializeComponent();
+            this.DataContext = mainWindowViewModel;
         }
     }
 }

@@ -49,7 +49,6 @@
             <Frame Source="View/Orders.xaml" Grid.Column="1" x:Name="OrdersForm" NavigationUIVisibility="Hidden"/>
             <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm" NavigationUIVisibility="Hidden"/>-->
             <Frame NavigationUIVisibility="Hidden" Source="{Binding CurrentPage}" Grid.Column="1"/>
-
         </Grid>
 
         <!--popup info-->

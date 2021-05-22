@@ -38,9 +38,9 @@ namespace ClientPresentation.ViewModel
         {
             serviceConnect = new SrvConnect();
 
-            Clients = new CmdLoadPage(this, "Clients.xaml");
-            Orders = new CmdLoadPage(this, "Orders.xaml");
-            Vinyls = new CmdLoadPage(this, "Vinyls.xaml");
+            Clients = new CmdLoadPage(this, "View/Clients.xaml");
+            Orders = new CmdLoadPage(this, "View/Orders.xaml");
+            Vinyls = new CmdLoadPage(this, "View/Vinyls.xaml");
 
             ConnectCmd = new CmdConnect(this);
 
