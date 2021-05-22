@@ -14,7 +14,7 @@ namespace ClientPresentation.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string connectionUri = "//localhost:8081/";
+        private string connectionUri = "ws://localhost:8081/";
         public string ConnectionUri
         {
             get => connectionUri;
@@ -81,6 +81,18 @@ namespace ClientPresentation.ViewModel
             }
         }
 
+        private string log = "Waiting for connection logs";
+
+        public string Log
+        {
+            get => log;
+            set
+            {
+                log = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Log"));
+            }
+        }
+
         private string popupText = "";
 
         public string PopupText
@@ -108,8 +120,13 @@ namespace ClientPresentation.ViewModel
 
         public async Task<bool> EstablishConnection(Uri peerUri)
         {
-            await serviceConnect.Connect(peerUri);
+            await serviceConnect.Connect(peerUri, ShowLog);
             return serviceConnect.IsConnected;
+        }
+
+        public void ShowLog(string log)
+        {
+            Log = log;
         }
     }
 }

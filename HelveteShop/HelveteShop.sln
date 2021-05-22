@@ -33,6 +33,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerPresentation", "ServerPresentation\ServerPresentation.csproj", "{AD100901-4E8A-41B1-8CFF-B27D4045AECA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientLogic", "ClientLogic\ClientLogic.csproj", "{E0BF4623-E62F-4F88-83FC-3448808C7F22}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5FD9EC8E-4DBB-426C-89C5-AF207EFCF8C7} = {5FD9EC8E-4DBB-426C-89C5-AF207EFCF8C7}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientData", "ClientData\ClientData.csproj", "{5FD9EC8E-4DBB-426C-89C5-AF207EFCF8C7}"
 	ProjectSection(ProjectDependencies) = postProject
