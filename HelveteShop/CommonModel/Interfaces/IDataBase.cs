@@ -6,9 +6,9 @@ namespace CommonModel.Interfaces
 {
     public interface IDataBase<T> where T : IData
     {
-        void Add(T item);
-        bool Remove(T item);
-        T GetClient(int id);
+        bool Add(T item);
+        bool Remove(int id);
+        T Get(int id);
         bool Update(T item, int id);
         IEnumerable<T> GetAll();
 

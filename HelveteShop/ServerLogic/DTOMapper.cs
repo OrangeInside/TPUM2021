@@ -19,7 +19,14 @@ namespace ServerLogic
             return clientDTO;
         }
 
-        public static VinylDTO Map(Vinyl vinyl)
+        public static IClient Map(ClientDTO clientDTO)
+        {
+            Client client = new Client(clientDTO.ID, clientDTO.Name, clientDTO.Address);
+
+            return client;
+        }
+
+        public static VinylDTO Map(IVinyl vinyl)
         {
             VinylDTO vinylDTO = new VinylDTO
             {
@@ -30,6 +37,13 @@ namespace ServerLogic
             };
 
             return vinylDTO;
+        }
+
+        public static IVinyl Map(VinylDTO vinylDTO)
+        {
+            Vinyl vinyl = new Vinyl(vinylDTO.ID, vinylDTO.Title, vinylDTO.Band, vinylDTO.Price);
+
+            return vinyl;
         }
 
         public static List<VinylDTO> MapVinylList(List<Vinyl> vinyls)
@@ -44,7 +58,7 @@ namespace ServerLogic
             return vinylsDTO;
         }
 
-        public static OrderDTO Map(Order order)
+        public static OrderDTO Map(IOrder order)
         {
             OrderDTO orderDTO = new OrderDTO
             {
@@ -59,6 +73,16 @@ namespace ServerLogic
             };
 
             return orderDTO;
+        }
+
+        public static IOrder Map(OrderDTO orderDTO)
+        {
+            Client client = new Client(orderDTO.ClientID, orderDTO.ClientName, orderDTO.ClientAddress);
+            Vinyl vinyl = new Vinyl(orderDTO.VinylID, orderDTO.VinylTitle, orderDTO.VinylBand, orderDTO.VinylPrice);
+
+            Order order = new Order(orderDTO.ID, client, vinyl);
+
+            return order;
         }
     }
 }

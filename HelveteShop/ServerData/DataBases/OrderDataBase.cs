@@ -5,14 +5,14 @@ using CommonModel.Interfaces;
 
 namespace ServerData
 {
-    class OrderDataBase : IDataBase<IOrder>
+    public class OrderDataBase : IDataBase<IOrder>
     {
         private readonly DataContext dataContext;
         private readonly object itemLock = new object();
 
-        public OrderDataBase(DataContext dataContext)
+        public OrderDataBase()
         {
-            this.dataContext = dataContext;
+            this.dataContext = DataContext.Instance;
         }
 
         public void Add(IOrder item)

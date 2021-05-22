@@ -5,14 +5,14 @@ using CommonModel.Interfaces;
 
 namespace ServerData
 {
-    class VinylDataBase : IDataBase<IVinyl>
+    public class VinylDataBase : IDataBase<IVinyl>
     {
         private readonly DataContext dataContext;
         private readonly object itemLock = new object();
 
-        public VinylDataBase(DataContext dataContext)
+        public VinylDataBase()
         {
-            this.dataContext = dataContext;
+            this.dataContext = DataContext.Instance;
         }
 
         public void Add(IVinyl item)

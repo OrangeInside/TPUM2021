@@ -5,9 +5,9 @@ using CommonModel.Interfaces;
 
 namespace CommonModel
 {
-    public class Order : IData
+    public class Order : IOrder
     {
-        public int ID { get; }
+        public int ID { get; set; }
         public IVinyl vinyl { get; set; }
         public IClient client { get; set; }
 

@@ -6,6 +6,6 @@ namespace CommonModel.Interfaces
 {
     public interface IData
     {
-        int ID { get; }
+        int ID { get; set; }
     }
 }

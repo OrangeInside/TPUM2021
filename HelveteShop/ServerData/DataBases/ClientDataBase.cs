@@ -5,19 +5,20 @@ using CommonModel.Interfaces;
 
 namespace ServerData
 {
-    class ClientDataBase : IDataBase<IClient>
+    public class ClientDataBase : IDataBase<IClient>
     {
         private readonly DataContext dataContext;
         private readonly object itemLock = new object();
 
-        public ClientDataBase(DataContext dataContext)
+        public ClientDataBase()
         {
-            this.dataContext = dataContext;
+            this.dataContext = DataContext.Instance;
         }
 
-        public void Add(IClient item)
+        public bool Add(IClient item)
         {
             dataContext?.Clients?.Add(item);
+            return true;
         }
 
         public IEnumerable<IClient> GetAll()
@@ -25,14 +26,14 @@ namespace ServerData
             return dataContext?.Clients;
         }
 
-        public IClient GetClient(int id)
+        public IClient Get(int id)
         {
             return dataContext.Clients.Find(client => client.ID == id);
         }
 
-        public bool Remove(IClient item)
+        public bool Remove(int id)
         {
-            return dataContext.Clients.Remove(item);
+            return dataContext.Clients.Remove(dataContext.Clients.Find(client => client.ID == id));
         }
 
         public bool Update(IClient item, int id)

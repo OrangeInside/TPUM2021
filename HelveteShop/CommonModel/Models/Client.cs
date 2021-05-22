@@ -7,13 +7,13 @@ namespace CommonModel
 {
     public class Client : IClient
     {
-        public int ID { get; }
+        public int ID { get; set; }
         public string name { get; set; }
         public string address { get; set; }
 
-        public Client(int id, string name, string address)
+        public Client(int ID, string name, string address)
         {
-            this.ID = id;
+            this.ID = ID;
             this.name = name;
             this.address = address;
         }
