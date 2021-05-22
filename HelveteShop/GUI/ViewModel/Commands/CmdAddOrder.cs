@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Logic;
 
-namespace GUI.ViewModel
+namespace ClientPresentation.ViewModel
 {
     public class CmdAddOrder : ICommand
     {

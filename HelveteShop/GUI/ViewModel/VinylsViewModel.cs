@@ -4,7 +4,7 @@ using System.ComponentModel;
 using Logic;
 using System.Windows.Input;
 
-namespace GUI.ViewModel
+namespace ClientPresentation.ViewModel
 {
     public class VinylsViewModel : INotifyPropertyChanged
     {

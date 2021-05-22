@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI.View
+namespace ClientPresentation.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,28 +22,7 @@ namespace GUI.View
     {
         public MainWindow()
         {
-            InitializeComponent();
-        }
-
-        private void OnSetFrameWithClients(object sender, RoutedEventArgs e)
-        {
-            this.ClientsForm.Visibility = Visibility.Visible;
-            this.VinylsForm.Visibility = Visibility.Hidden;
-            this.OrdersForm.Visibility = Visibility.Hidden;
-        }
-
-        private void OnSetFrameWithVinyls(object sender, RoutedEventArgs e)
-        {
-            this.ClientsForm.Visibility = Visibility.Hidden;
-            this.VinylsForm.Visibility = Visibility.Visible;
-            this.OrdersForm.Visibility = Visibility.Hidden;
-        }
-
-        private void OnSetFrameWithOrders(object sender, RoutedEventArgs e)
-        {
-            this.ClientsForm.Visibility = Visibility.Hidden;
-            this.VinylsForm.Visibility = Visibility.Hidden;
-            this.OrdersForm.Visibility = Visibility.Visible;
+            
         }
     }
 }

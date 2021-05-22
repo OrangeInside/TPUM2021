@@ -1,10 +1,10 @@
-﻿<Window x:Class="GUI.View.MainWindow"
+﻿<Window x:Class="ClientPresentation.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GUI.View"
-        xmlns:vm="clr-namespace:GUI.ViewModel"
+        xmlns:local="clr-namespace:ClientPresentation.View"
+        xmlns:vm="clr-namespace:ClientPresentation.ViewModel"
         mc:Ignorable="d"
         Title="Helvete - Welcome in hell" Height="640" Width="1080">
     
@@ -21,15 +21,18 @@
         
         <!--Header-->
         <Grid x:Name="headerGrid" Grid.Row="0" Background="DimGray">
+            <Button x:Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" Height="30" Margin="16,0,0,0" VerticalAlignment="Center" Width="121" Command="{Binding ConnectCmd}"/>
+            <TextBox x:Name="ConnectionBox" HorizontalAlignment="Left" Height="22" Margin="147,0,0,0" Text="{Binding ConnectionUri, FallbackValue='//localhost:8081/'}" TextWrapping="Wrap" VerticalAlignment="Center" Width="190" FontFamily="Consolas" Foreground="Blue" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+
             <Button x:Name="clientsButton" Content="Clients" HorizontalAlignment="Left"
-                        HorizontalContentAlignment="Center" Margin="10,0,0,0" Width="80" Height="20"
-                        Command="" Click="OnSetFrameWithClients"/>
+                        HorizontalContentAlignment="Center" Margin="500,0,0,0" Width="80" Height="20"
+                        Command="{Binding Clients}"/>
             <Button x:Name="vinylsButton" Content="Vinyls" HorizontalAlignment="Left"
-                        HorizontalContentAlignment="Center" Margin="100,0,0,0" Width="80" Height="20"
-                        Command="" Click="OnSetFrameWithVinyls"/>
+                        HorizontalContentAlignment="Center" Margin="600,0,0,0" Width="80" Height="20"
+                        Command="{Binding Vinyls}"/>
             <Button x:Name="ordersButton" Content="Orders" HorizontalAlignment="Left"
-                        HorizontalContentAlignment="Center" Margin="190,0,0,0" Width="80" Height="20"
-                        Command="" Click="OnSetFrameWithOrders"/>
+                        HorizontalContentAlignment="Center" Margin="700,0,0,0" Width="80" Height="20"
+                        Command="{Binding Orders}"/>
         </Grid>
 
         <Grid x:Name="contentGrid" Grid.Row="1">
@@ -42,9 +45,10 @@
             <!--Side panel-->
             <Frame Source="View/GeneralInfo.xaml" Grid.Column="0"/>
 
-            <Frame Source="View/Vinyls.xaml" Grid.Column="1" x:Name="VinylsForm" NavigationUIVisibility="Hidden"/>
+            <!--<Frame Source="View/Vinyls.xaml" Grid.Column="1" x:Name="VinylsForm" NavigationUIVisibility="Hidden"/>
             <Frame Source="View/Orders.xaml" Grid.Column="1" x:Name="OrdersForm" NavigationUIVisibility="Hidden"/>
-            <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm" NavigationUIVisibility="Hidden"/>
+            <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm" NavigationUIVisibility="Hidden"/>-->
+            <Frame NavigationUIVisibility="Hidden" Source="{Binding CurrentPage}" Grid.Column="1"/>
 
         </Grid>
 
