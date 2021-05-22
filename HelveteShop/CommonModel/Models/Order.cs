@@ -8,10 +8,10 @@ namespace CommonModel
     public class Order : IData
     {
         public int ID { get; }
-        public Interfaces.IVinyl vinyl { get; set; }
-        public Interfaces.IClient client { get; set; }
+        public IVinyl vinyl { get; set; }
+        public IClient client { get; set; }
 
-        public Order(int ID, Interfaces.IClient client, Interfaces.IVinyl vinyl)
+        public Order(int ID, IClient client, IVinyl vinyl)
         {
             this.ID = ID;
             this.client = client;
