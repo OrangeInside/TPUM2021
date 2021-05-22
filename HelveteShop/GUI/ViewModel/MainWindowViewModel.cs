@@ -106,6 +106,16 @@ namespace ClientPresentation.ViewModel
             }
         }
 
+        private string connectButtonText = "Connect";
+        public string ConnectButtonText
+        {
+            get => connectButtonText;
+            set
+            {
+                connectButtonText = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ConnectButtonText"));
+            }
+        }
 
         public void SetShowPopupInfo()
         {
@@ -120,8 +130,25 @@ namespace ClientPresentation.ViewModel
 
         public async Task<bool> EstablishConnection(Uri peerUri)
         {
-            await serviceConnect.Connect(peerUri, ShowLog);
-            return serviceConnect.IsConnected;
+            ConnectButtonText = "Connecting...";
+            bool result = await serviceConnect.Connect(peerUri, ShowLog);
+
+            if (result)
+            {
+                ConnectButtonText = "Disconnect";
+            }
+            else
+            {
+                ConnectButtonText = "Connect";
+            }
+
+            return result;
+        }
+
+        public async Task Disconnect()
+        {
+            await serviceConnect.Disconnect();
+            ConnectButtonText = "Connect";
         }
 
         public void ShowLog(string log)

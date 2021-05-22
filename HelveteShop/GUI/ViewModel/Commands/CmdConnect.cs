@@ -27,9 +27,15 @@ namespace ClientPresentation.ViewModel
 
             try
             {
-                bool connection = await mainWindowViewModel.EstablishConnection(new Uri(mainWindowViewModel.ConnectionUri));
-
-                Debug.WriteLine($"Connection result: {(connection ? "Connected" : "Failed")}");
+                if (mainWindowViewModel.IsServiceConnected())
+                {
+                    await mainWindowViewModel.Disconnect();
+                }
+                else
+                {
+                    bool connection = await mainWindowViewModel.EstablishConnection(new Uri(mainWindowViewModel.ConnectionUri));
+                    Debug.WriteLine($"Connection result: {(connection ? "Connected" : "Failed to connect")}");
+                }
             }
             catch (UriFormatException e)
             {

@@ -34,5 +34,11 @@ namespace ClientLogic.Services
                 return false;
             }
         }
+
+        public async Task Disconnect()
+        {
+            await clientSocketConnection.Disconnect();
+            clientSocketConnection = null;
+        }
     }
 }

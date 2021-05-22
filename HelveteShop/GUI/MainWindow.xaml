@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:ClientPresentation.ViewModel"
         mc:Ignorable="d"
         Title="Helvete - Welcome in hell" Height="640" Width="1080">
-    
+
     <Window.Resources>
         <vm:MainWindowViewModel x:Key="mainVM"/>
     </Window.Resources>
@@ -18,39 +18,39 @@
             <RowDefinition Height="13*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        
+
         <!--Header-->
-        <Grid x:Name="headerGrid" Grid.Row="0" Background="DimGray">
-            <Button x:Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" Height="30" Margin="16,0,0,0" VerticalAlignment="Center" Width="121" Command="{Binding ConnectCmd}"/>
-            <TextBox x:Name="ConnectionBox" HorizontalAlignment="Left" Height="22" Margin="147,0,0,0" Text="{Binding ConnectionUri, FallbackValue='//localhost:8081/'}" TextWrapping="Wrap" VerticalAlignment="Center" Width="190" FontFamily="Consolas" Foreground="Blue" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <Grid x:Name="headerGrid" Grid.Row="0" Background="DimGray" Margin="0,0,0,536" Grid.RowSpan="2">
+            <Button x:Name="ConnectButton" Content="{Binding ConnectButtonText, FallbackValue='Connect'}" HorizontalAlignment="Left" Height="30" Margin="14,8,0,0" VerticalAlignment="Top" Width="122" Command="{Binding ConnectCmd}"/>
+            <TextBox x:Name="ConnectionBox" HorizontalAlignment="Left" Height="22" Margin="146,8,0,0" Text="{Binding ConnectionUri, FallbackValue='//localhost:8081/'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" FontFamily="Consolas" Foreground="Blue" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
 
             <Button x:Name="clientsButton" Content="Clients" HorizontalAlignment="Left"
-                        HorizontalContentAlignment="Center" Margin="500,0,0,0" Width="80" Height="20"
-                        Command="{Binding Clients}"/>
+                        HorizontalContentAlignment="Center" Margin="501,13,0,0" Width="80" Height="20"
+                        Command="{Binding Clients}" VerticalAlignment="Top"/>
             <Button x:Name="vinylsButton" Content="Vinyls" HorizontalAlignment="Left"
-                        HorizontalContentAlignment="Center" Margin="600,0,0,0" Width="80" Height="20"
-                        Command="{Binding Vinyls}"/>
+                        HorizontalContentAlignment="Center" Margin="601,13,0,0" Width="80" Height="20"
+                        Command="{Binding Vinyls}" VerticalAlignment="Top"/>
             <Button x:Name="ordersButton" Content="Orders" HorizontalAlignment="Left"
-                        HorizontalContentAlignment="Center" Margin="700,0,0,0" Width="80" Height="20"
-                        Command="{Binding Orders}"/>
+                        HorizontalContentAlignment="Center" Margin="701,13,0,0" Width="80" Height="20"
+                        Command="{Binding Orders}" VerticalAlignment="Top"/>
 
-            <TextBlock HorizontalAlignment="Left" Height="19" Margin="900,0,0,0" Text="{Binding Log, FallbackValue='Waiting for connection logs'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="562"/>
+            <TextBlock HorizontalAlignment="Left" Height="19" Margin="146,35,0,0" Text="{Binding Log, FallbackValue='Waiting for connection logs'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="562"/>
         </Grid>
 
-        <Grid x:Name="contentGrid" Grid.Row="1">
+        <Grid x:Name="contentGrid" Grid.Row="1" Margin="0,16,0,0">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="217*"/>
+                <ColumnDefinition Width="863*"/>
             </Grid.ColumnDefinitions>
 
             <!--Side panel-->
-            <Frame Source="View/GeneralInfo.xaml" Grid.Column="0"/>
+            <Frame Source="View/GeneralInfo.xaml" Grid.Column="0" Margin="0,17,0,0"/>
 
             <!--<Frame Source="View/Vinyls.xaml" Grid.Column="1" x:Name="VinylsForm" NavigationUIVisibility="Hidden"/>
             <Frame Source="View/Orders.xaml" Grid.Column="1" x:Name="OrdersForm" NavigationUIVisibility="Hidden"/>
             <Frame Source="View/Clients.xaml" Grid.Column="1" x:Name="ClientsForm" NavigationUIVisibility="Hidden"/>-->
-            <Frame NavigationUIVisibility="Hidden" Source="{Binding CurrentPage}" Grid.Column="1"/>
+            <Frame NavigationUIVisibility="Hidden" Source="{Binding CurrentPage}" Grid.Column="1" Margin="0,17,0,0"/>
         </Grid>
 
         <!--popup info-->
@@ -62,10 +62,10 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="1" Text="{Binding PopupText}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red"/>
-            
+
             <!--<Button Grid.Column="2" Content="X" Command="{Binding ClosePopupCommand}"/>-->
         </Grid>
     </Grid>
-    
-    
+
+
 </Window>

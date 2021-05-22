@@ -27,7 +27,8 @@ namespace ClientData
             }
         }
 
-        public class ClientWebSocketConnection : WebSocketConnection
+        #region clientwsConnection
+        private class ClientWebSocketConnection : WebSocketConnection
         {
             private ClientWebSocket clientWebSocket = null;
             private Uri peer = null;
@@ -38,16 +39,17 @@ namespace ClientData
                 this.log = log;
                 this.peer = peer;
                 this.clientWebSocket = clientWebSocket;
-                Task.Factory.StartNew(() => ClientMessageLoop());
-            }
-            protected override Task SendTask(string message)
-            {
-                throw new NotImplementedException();
+                Task.Factory.StartNew(ClientMessageLoop);
             }
 
-            public override Task AsyncDisconnect()
+            protected override Task SendTask(string message)
             {
-                throw new NotImplementedException();
+                return clientWebSocket.SendAsync(message.UseArraysSegment(), WebSocketMessageType.Text, true, CancellationToken.None); ;
+            }
+
+            public override Task Disconnect()
+            {
+                return clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closing started", CancellationToken.None);
             }
 
 
@@ -89,6 +91,12 @@ namespace ClientData
                     clientWebSocket.CloseAsync(WebSocketCloseStatus.InternalServerError, "Connection has been broken because of an exception", CancellationToken.None).Wait();
                 }
             }
+        }
+        #endregion
+        internal static ArraySegment<byte> UseArraysSegment(this string message)
+        {
+            byte[] bytesBuffer = Encoding.UTF8.GetBytes(message);
+            return new ArraySegment<byte>(bytesBuffer);
         }
     }
 }
