@@ -19,6 +19,11 @@ namespace ClientData
             dataContext?.Clients?.Add(item);
         }
 
+        public IClient Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<IClient> GetAll()
         {
             return dataContext?.Clients;
@@ -34,6 +39,11 @@ namespace ClientData
             return dataContext.Clients.Remove(item);
         }
 
+        public bool Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Update(IClient item, int id)
         {
             IClient targetClient = dataContext.Clients.Find(client => client.ID == id);
@@ -46,6 +56,11 @@ namespace ClientData
                 targetClient.address = item.address;
                 return true;
             }
+        }
+
+        bool IDataBase<IClient>.Add(IClient item)
+        {
+            throw new NotImplementedException();
         }
     }
 }

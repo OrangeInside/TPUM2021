@@ -48,5 +48,30 @@ namespace ClientData
                 return true;
             }
         }
+
+        bool IDataBase<IVinyl>.Add(IVinyl item)
+        {
+            throw new NotImplementedException();
+        }
+
+        IVinyl IDataBase<IVinyl>.Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IVinyl> IDataBase<IVinyl>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IDataBase<IVinyl>.Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IDataBase<IVinyl>.Update(IVinyl item, int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

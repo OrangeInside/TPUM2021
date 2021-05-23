@@ -2,7 +2,7 @@
 using Logic;
 using System.Windows.Input;
 using System.Windows;
-using ClientLogic.Services;
+using Logic.Services;
 using System.Threading.Tasks;
 using System;
 
