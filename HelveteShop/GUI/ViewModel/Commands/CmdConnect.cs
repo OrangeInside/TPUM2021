@@ -23,7 +23,7 @@ namespace ClientPresentation.ViewModel
 
         public async void Execute(object parameter)
         {
-            Debug.WriteLine($"Trying to connect to {mainWindowViewModel.ConnectionUri}");
+            Debug.WriteLine($"Trying to connect: {mainWindowViewModel.ConnectionUri}");
 
             try
             {
@@ -34,7 +34,7 @@ namespace ClientPresentation.ViewModel
                 else
                 {
                     bool connection = await mainWindowViewModel.EstablishConnection(new Uri(mainWindowViewModel.ConnectionUri));
-                    Debug.WriteLine($"Connection result: {(connection ? "Connected" : "Failed to connect")}");
+                    Debug.WriteLine($"Con Result: {(connection ? "Connected" : "Failed")}");
                 }
             }
             catch (UriFormatException e)

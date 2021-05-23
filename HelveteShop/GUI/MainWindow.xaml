@@ -34,7 +34,7 @@
                         HorizontalContentAlignment="Center" Margin="701,13,0,0" Width="80" Height="20"
                         Command="{Binding Orders}" VerticalAlignment="Top"/>
 
-            <TextBlock HorizontalAlignment="Left" Height="19" Margin="146,35,0,0" Text="{Binding Log, FallbackValue='Waiting for connection logs'}" TextWrapping="Wrap" VerticalAlignment="Top" Width="562"/>
+            <TextBlock HorizontalAlignment="Left" Height="19" Margin="146,35,0,0" Text="{Binding Log}" TextWrapping="Wrap" VerticalAlignment="Top" Width="562"/>
         </Grid>
 
         <Grid x:Name="contentGrid" Grid.Row="1" Margin="0,16,0,0">

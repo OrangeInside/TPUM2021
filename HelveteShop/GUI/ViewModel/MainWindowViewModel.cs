@@ -22,7 +22,6 @@ namespace ClientPresentation.ViewModel
             {
                 connectionUri = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ConnectionUri"));
-                //OnPropertyChanged("ConnectionUri");
             }
         }
 
@@ -44,8 +43,6 @@ namespace ClientPresentation.ViewModel
 
             ConnectCmd = new CmdConnect(this);
 
-            // Load the default page on start
-            //Debug.WriteLine("Starting default page...");
             Clients.Execute(null);
 
             PopupText = "";
@@ -77,7 +74,6 @@ namespace ClientPresentation.ViewModel
             {
                 currentPage = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("CurrentPage"));
-                //OnPropertyChanged("CurrentPage");
             }
         }
 
@@ -130,7 +126,7 @@ namespace ClientPresentation.ViewModel
 
         public async Task<bool> EstablishConnection(Uri peerUri)
         {
-            ConnectButtonText = "Connecting...";
+            ConnectButtonText = "Connecting";
             bool result = await serviceConnect.Connect(peerUri, ShowLog);
 
             if (result)
