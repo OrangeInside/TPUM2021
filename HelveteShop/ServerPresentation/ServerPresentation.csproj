@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClientData\ClientData.csproj" />
+    <ProjectReference Include="..\ServerLogic\ServerLogic.csproj" />
   </ItemGroup>
 
 </Project>

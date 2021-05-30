@@ -10,5 +10,6 @@ namespace ServerLogic
         public string Title { get; set; }
         public string Band { get; set; }
         public decimal Price { get; set; }
+        public int InStock { get; set; }
     }
 }

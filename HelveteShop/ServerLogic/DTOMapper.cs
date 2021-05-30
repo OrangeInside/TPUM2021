@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CommonModel;
-using CommonModel.Interfaces;
+using CommonModel;
 
 namespace ServerLogic
 {
@@ -33,7 +33,8 @@ namespace ServerLogic
                 ID = vinyl.ID,
                 Title = vinyl.title,
                 Band = vinyl.band,
-                Price = vinyl.price
+                Price = vinyl.price,
+                InStock = vinyl.inStock
             };
 
             return vinylDTO;
@@ -41,7 +42,7 @@ namespace ServerLogic
 
         public static IVinyl Map(VinylDTO vinylDTO)
         {
-            Vinyl vinyl = new Vinyl(vinylDTO.ID, vinylDTO.Title, vinylDTO.Band, vinylDTO.Price);
+            Vinyl vinyl = new Vinyl(vinylDTO.ID, vinylDTO.Title, vinylDTO.Band, vinylDTO.Price, vinylDTO.InStock);
 
             return vinyl;
         }

@@ -9,8 +9,9 @@ namespace ServerLogic
     {
         Task<VinylDTO> GetVinyl(int id);
         Task<IEnumerable<VinylDTO>> GetAllVinyls();
-        Task<bool> AddVinyl(VinylDTO vinyl);
+        Task<bool> AddVinyl(int id, int count);
+        Task<bool> AddNewVinyl(VinylDTO vinyl);
         Task<bool> RemoveVinyl(int id);
-        Task<bool> UpdateVinyl (VinylDTO vinyl, int id);
+        Task<bool> RemoveStockVinyl(int id, int count);
     }
 }

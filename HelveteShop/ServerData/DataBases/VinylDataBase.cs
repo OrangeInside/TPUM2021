@@ -41,12 +41,12 @@ namespace ServerData
 
         public IEnumerable<IVinyl> Get()
         {
-            throw new NotImplementedException();
+            return dataContext?.Vinyls;
         }
 
         public IVinyl Get(int id)
         {
-            throw new NotImplementedException();
+            return dataContext.Vinyls.Find(vinyl => vinyl.ID == id);
         }
 
         public IEnumerable<IVinyl> GetAll()
@@ -66,12 +66,24 @@ namespace ServerData
 
         public bool Remove(int id)
         {
-            throw new NotImplementedException();
+            return dataContext.Vinyls.Remove(dataContext.Vinyls.Find(vinyl => vinyl.ID == id));
         }
 
         public bool RemoveStock(int id, int count)
         {
-            throw new NotImplementedException();
+            IVinyl vinyl = Get(id);
+
+            if (vinyl != null)
+            {
+                vinyl.inStock -= count;
+
+                if (vinyl.inStock < 0)
+                    vinyl.inStock = 0;
+
+                return true;
+            }
+            else
+                return false;
         }
 
         public bool Update(IVinyl item, int id)
@@ -92,7 +104,7 @@ namespace ServerData
                 return true;
             }
         }
-
+        /*
         bool IDataBase<IVinyl>.Add(IVinyl item)
         {
             throw new NotImplementedException();
@@ -117,5 +129,6 @@ namespace ServerData
         {
             throw new NotImplementedException();
         }
+        */
     }
 }
