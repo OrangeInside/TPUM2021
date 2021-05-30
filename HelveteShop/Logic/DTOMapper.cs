@@ -33,12 +33,13 @@ namespace ClientLogic
 
         public static VinylDTO Map(Vinyl vinyl)
         {
-            VinylDTO vinylDTO = new VinylDTO
+            VinylDTO vinylDTO = new VinylDTO()
             {
                 ID = vinyl.ID,
                 Title = vinyl.title,
                 Band = vinyl.band,
-                Price = vinyl.price
+                Price = vinyl.price,
+                inStock = vinyl.inStock
             };
 
             return vinylDTO;
@@ -46,13 +47,16 @@ namespace ClientLogic
 
         public static VinylDTO Map(IVinyl vinyl)
         {
-            VinylDTO vinylDTO = new VinylDTO
+            VinylDTO vinylDTO = new VinylDTO()
             {
                 ID = vinyl.ID,
                 Title = vinyl.title,
                 Band = vinyl.band,
-                Price = vinyl.price
+                Price = vinyl.price,
+                inStock = vinyl.inStock
             };
+
+            vinylDTO.Band = vinyl.band;
 
             return vinylDTO;
         }

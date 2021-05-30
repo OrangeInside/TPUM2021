@@ -42,6 +42,7 @@ namespace ClientLogic
             IEnumerable<IVinyl> vinyls = vinylsDataBase.GetAll();
 
             List<VinylDTO> vinylsDTOs = new List<VinylDTO>();
+
             foreach (var vinyl in vinyls)
             {
                 vinylsDTOs.Add(DTOMapper.Map(vinyl));

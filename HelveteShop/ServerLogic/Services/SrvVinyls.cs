@@ -75,6 +75,18 @@ namespace ServerLogic
             return await Task.FromResult(vinylDataBase.Remove(id));
         }
 
+        public async Task<bool> UpdateStock()
+        {
+            var vinyls = vinylDataBase.Get();
+
+            foreach (IVinyl vinyl in vinyls)
+            {
+                await this.AddVinyl(vinyl.ID, 1);
+            }
+
+            return true;
+        }
+
         /*public async Task<bool> UpdateVinyl(VinylDTO vinyl, int id)
         {
             return await Task.FromResult(vinylDataBase.Update(DTOMapper.Map(vinyl), id));

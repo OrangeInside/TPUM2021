@@ -26,7 +26,7 @@ namespace ClientPresentation.ViewModel
             //AddVinylCmd = new CmdAddVinyl(this);
 
             srvVinyl = ServiceFactory.CreateVinylService;
-            srvVinyl.OnRefreshVinyls += UpdateDevices;
+            srvVinyl.OnRefreshVinyls += UpdateVinyls;
             vinyls = new ObservableCollection<VinylDTO>();
 
             MainWindowViewModel.OnConnectionEstablished += RequestVinyls;
@@ -120,7 +120,7 @@ namespace ClientPresentation.ViewModel
             }
         }
 
-        public void UpdateDevices()
+        public void UpdateVinyls()
         {
             vinyls = new ObservableCollection<VinylDTO>(srvVinyl.GetVinyls());
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));

@@ -13,5 +13,7 @@ namespace ServerLogic
         Task<bool> AddNewVinyl(VinylDTO vinyl);
         Task<bool> RemoveVinyl(int id);
         Task<bool> RemoveStockVinyl(int id, int count);
+
+        Task<bool> UpdateStock();
     }
 }

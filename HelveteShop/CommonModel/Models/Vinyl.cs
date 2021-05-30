@@ -13,7 +13,7 @@ namespace CommonModel
         public decimal price { get; set; }
         public int inStock { get; set; }
 
-        public Vinyl(int ID, string title, string band, decimal price, int inStock = 0)
+        public Vinyl(int ID, string title, string band, decimal price, int inStock)
         {
             this.ID = ID;
             this.title = title;

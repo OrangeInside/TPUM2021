@@ -19,15 +19,18 @@ namespace ServerPresentation
             await WebSocketServer.Server(8081, ConnectionHandler);
         }
 
+        private static Timer timer = null;
+
         static void ConnectionHandler(WebSocketConnection webSocketConnection)
         {
             CurrentConnection = webSocketConnection;
             webSocketConnection.onMessage = ParseMessage;
             webSocketConnection.onClose = () => { Console.WriteLine("[From Server]: Connection closed"); };
             webSocketConnection.onError = () => { Console.WriteLine("[From Server]: Connection error encountered"); };
-        }
 
-        //add reactive
+            timer = new Timer(10000);
+            timer.OnTimerReach += UpdateStock;
+        }
 
         static async void ParseMessage(string message)
         {
@@ -44,7 +47,6 @@ namespace ServerPresentation
                 int vinylCount = Serializer.IntFromJson(splited[2]);
 
                 await srvVinyls.AddVinyl(vinylID, vinylCount);
-
                 await CurrentConnection.SendAsync("Confirm");
             }
             else if (message.Contains("RemoveVinyl"))
@@ -54,8 +56,17 @@ namespace ServerPresentation
                 int vinylCount = Serializer.IntFromJson(splited[2]);
 
                 await srvVinyls.RemoveStockVinyl(vinylID, vinylCount);
-
                 await CurrentConnection.SendAsync("Confirm");
+            }
+        }
+
+        static async void UpdateStock()
+        {
+            if (CurrentConnection != null)
+            {
+                await srvVinyls.UpdateStock();
+                await SendVinyls();
+                Console.WriteLine("[From Server]: Update vinyls in stock");
             }
         }
 

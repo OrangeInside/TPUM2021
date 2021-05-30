@@ -79,7 +79,7 @@ namespace ServerLogic
         public static IOrder Map(OrderDTO orderDTO)
         {
             Client client = new Client(orderDTO.ClientID, orderDTO.ClientName, orderDTO.ClientAddress);
-            Vinyl vinyl = new Vinyl(orderDTO.VinylID, orderDTO.VinylTitle, orderDTO.VinylBand, orderDTO.VinylPrice);
+            Vinyl vinyl = new Vinyl(orderDTO.VinylID, orderDTO.VinylTitle, orderDTO.VinylBand, orderDTO.VinylPrice, 0);
 
             Order order = new Order(orderDTO.ID, client, vinyl);
 
