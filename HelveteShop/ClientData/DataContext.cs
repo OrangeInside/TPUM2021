@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CommonModel;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace ClientData
 {
@@ -51,7 +51,7 @@ namespace ClientData
 
                     var toDeserialize = split[1].Insert(0, "[");
                     var deserialized = JsonSerializer.Deserialize<List<Vinyl>>(toDeserialize);
-                    Vinyls = new List<IVinyl>(deserialized!);
+                    Vinyls = new List<IVinyl>(deserialized);
                     VinylsChanged?.Invoke();
                 }
 
