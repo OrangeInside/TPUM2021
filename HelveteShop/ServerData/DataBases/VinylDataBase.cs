@@ -32,7 +32,7 @@ namespace ServerData
 
             if (vinyl != null)
             {
-                vinyl.inStock += count;
+                vinyl.InStock += count;
                 return true;
             }
             else
@@ -75,10 +75,10 @@ namespace ServerData
 
             if (vinyl != null)
             {
-                vinyl.inStock -= count;
+                vinyl.InStock -= count;
 
-                if (vinyl.inStock < 0)
-                    vinyl.inStock = 0;
+                if (vinyl.InStock < 0)
+                    vinyl.InStock = 0;
 
                 return true;
             }
@@ -96,9 +96,9 @@ namespace ServerData
             {
                 lock (itemLock)
                 {
-                    targetVinyl.band = item.band;
-                    targetVinyl.price = item.price;
-                    targetVinyl.title = item.title;
+                    targetVinyl.Band = item.Band;
+                    targetVinyl.Price = item.Price;
+                    targetVinyl.Title = item.Title;
                 }
 
                 return true;

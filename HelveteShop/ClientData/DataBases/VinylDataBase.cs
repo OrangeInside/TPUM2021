@@ -68,7 +68,7 @@ namespace ClientData
             IVinyl found = dataContext.Vinyls.Find(vinyl => vinyl.ID == id);
             if (found != null)
             {
-                found.title = item.title;
+                found.Title = item.Title;
                 return true;
             }
             else

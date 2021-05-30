@@ -6,9 +6,9 @@ namespace CommonModel
 {
     public interface IVinyl : IData
     {
-        string title { get; set; }
-        string band { get; set; }
-        decimal price { get; set; }
-        int inStock { get; set; }
+        string Title { get; set; }
+        string Band { get; set; }
+        decimal Price { get; set; }
+        int InStock { get; set; }
     }
 }

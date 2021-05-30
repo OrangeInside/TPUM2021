@@ -9,9 +9,9 @@ namespace ServerPresentation
     public static class Serializer
     {
 
-        public static string AllDataToJson(IVinylServices deviceService)
+        public static string AllDataToJson(IVinylServices vinylsService)
         {
-            var vinyls = deviceService.GetAllVinyls().Result;
+            var vinyls = vinylsService.GetAllVinyls().Result;
 
             string stringToReturn = "Vinyls";
 
@@ -27,9 +27,9 @@ namespace ServerPresentation
             return JsonSerializer.Deserialize<int>(json);
         }
 
-        public static VinylDTO DeviceFormJson(string json)
+        /*public static VinylDTO VinylFromJson(string json)
         {
             return JsonSerializer.Deserialize<VinylDTO>(json);
-        }
+        }*/
     }
 }

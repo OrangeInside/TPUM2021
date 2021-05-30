@@ -8,27 +8,27 @@ namespace CommonModel
     public class Vinyl : IVinyl
     {
         public int ID { get; set; }
-        public string title { get; set; }
-        public string band { get; set; }
-        public decimal price { get; set; }
-        public int inStock { get; set; }
+        public string Title { get; set; }
+        public string Band { get; set; }
+        public decimal Price { get; set; }
+        public int InStock { get; set; }
 
         public Vinyl(int ID, string title, string band, decimal price, int inStock)
         {
             this.ID = ID;
-            this.title = title;
-            this.band = band;
-            this.price = price;
-            this.inStock = inStock;
+            this.Title = title;
+            this.Band = band;
+            this.Price = price;
+            this.InStock = inStock;
         }
 
         public override string ToString()
         {
             string vinylInfo = "";
-            vinylInfo += "Title: " + title;
-            vinylInfo += "\tBand: " + band;
-            vinylInfo += "\tPrice: " + price + " PLN";
-            vinylInfo += "\tInStock: " + inStock;
+            vinylInfo += "Title: " + Title;
+            vinylInfo += "\tBand: " + Band;
+            vinylInfo += "\tPrice: " + Price + " PLN";
+            vinylInfo += "\tInStock: " + InStock;
             return vinylInfo;
         }
     }

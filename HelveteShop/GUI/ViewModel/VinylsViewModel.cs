@@ -35,12 +35,6 @@ namespace ClientPresentation.ViewModel
 
             MainWindowViewModel.OnConnectionEstablished += RequestVinyls;
             MainWindowViewModel.OnConnectionLost += CleanVinyls;
-
-            /*NewDeviceCommand = new NewDeviceCommand(this);
-            ToggleDeviceCommand = new ToggleDeviceCommand(this);
-            SaveDeviceCommand = new AddDeviceCommand(this);
-            EditDeviceCommand = new EditDeviceCommand(this);
-            DeleteDeviceCommand = new MessageBoxCommand(new DeleteDeviceCommand(this), null, "Do you really want to delete this device?");*/
         }
 
         ~VinylsViewModel()

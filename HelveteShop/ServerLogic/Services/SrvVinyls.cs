@@ -37,7 +37,7 @@ namespace ServerLogic
         {
             IVinyl vinylObj = DTOMapper.Map(vinyl);
 
-            return await Task.FromResult(vinylDataBase.AddStock(vinylObj.ID, vinylObj.inStock));
+            return await Task.FromResult(vinylDataBase.AddStock(vinylObj.ID, vinylObj.InStock));
         }
 
         public async Task<bool> AddVinyl(int id, int count)

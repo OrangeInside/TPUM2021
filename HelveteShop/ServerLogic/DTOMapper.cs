@@ -31,10 +31,10 @@ namespace ServerLogic
             VinylDTO vinylDTO = new VinylDTO
             {
                 ID = vinyl.ID,
-                Title = vinyl.title,
-                Band = vinyl.band,
-                Price = vinyl.price,
-                InStock = vinyl.inStock
+                Title = vinyl.Title,
+                Band = vinyl.Band,
+                Price = vinyl.Price,
+                InStock = vinyl.InStock
             };
 
             return vinylDTO;
@@ -68,9 +68,9 @@ namespace ServerLogic
                 ClientName = order.client.name,
                 ClientAddress = order.client.address,
                 VinylID = order.vinyl.ID,
-                VinylBand = order.vinyl.band,
-                VinylTitle = order.vinyl.title,
-                VinylPrice = order.vinyl.price
+                VinylBand = order.vinyl.Band,
+                VinylTitle = order.vinyl.Title,
+                VinylPrice = order.vinyl.Price
             };
 
             return orderDTO;

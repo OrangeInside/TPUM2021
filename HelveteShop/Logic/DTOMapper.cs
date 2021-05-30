@@ -36,10 +36,10 @@ namespace ClientLogic
             VinylDTO vinylDTO = new VinylDTO()
             {
                 ID = vinyl.ID,
-                Title = vinyl.title,
-                Band = vinyl.band,
-                Price = vinyl.price,
-                inStock = vinyl.inStock
+                Title = vinyl.Title,
+                Band = vinyl.Band,
+                Price = vinyl.Price,
+                inStock = vinyl.InStock
             };
 
             return vinylDTO;
@@ -50,13 +50,13 @@ namespace ClientLogic
             VinylDTO vinylDTO = new VinylDTO()
             {
                 ID = vinyl.ID,
-                Title = vinyl.title,
-                Band = vinyl.band,
-                Price = vinyl.price,
-                inStock = vinyl.inStock
+                Title = vinyl.Title,
+                Band = vinyl.Band,
+                Price = vinyl.Price,
+                inStock = vinyl.InStock
             };
 
-            vinylDTO.Band = vinyl.band;
+            vinylDTO.Band = vinyl.Band;
 
             return vinylDTO;
         }
@@ -87,9 +87,9 @@ namespace ClientLogic
                 ClientName = order.client.name,
                 ClientAddress = order.client.address,
                 VinylID = order.vinyl.ID,
-                VinylBand = order.vinyl.band,
-                VinylTitle = order.vinyl.title,
-                VinylPrice = order.vinyl.price
+                VinylBand = order.vinyl.Band,
+                VinylTitle = order.vinyl.Title,
+                VinylPrice = order.vinyl.Price
             };
 
             return orderDTO;

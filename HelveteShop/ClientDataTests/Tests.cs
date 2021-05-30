@@ -25,9 +25,9 @@ namespace ClientDataTests
         public void GetTest()
         {
             Assert.AreEqual(0, vinylDataBase.Get(0).ID);
-            Assert.AreEqual("Album1", vinylDataBase.Get(1).title);
-            Assert.AreEqual("Band2", vinylDataBase.Get(2).band);
-            Assert.AreEqual(6, vinylDataBase.Get(2).inStock);
+            Assert.AreEqual("Album1", vinylDataBase.Get(1).Title);
+            Assert.AreEqual("Band2", vinylDataBase.Get(2).Band);
+            Assert.AreEqual(6, vinylDataBase.Get(2).InStock);
 
         }
 
