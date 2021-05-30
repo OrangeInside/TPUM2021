@@ -22,9 +22,12 @@ namespace ServerLogic
             if (vinylDataBase == null)
             {
                 vinylDataBase = new VinylDataBase();
-                vinylDataBase.AddNew(new Vinyl(0, "With Hearts Toward None", "Mgla", 15.99m, 1));
-                vinylDataBase.AddNew(new Vinyl(1, "With Hearts Toward Everything", "Night", 16.12m, 5));
-                vinylDataBase.AddNew(new Vinyl(2, "With Legs Toward None", "Day", 16.99m, 2));
+
+                vinylDataBase.AddNew(new Vinyl(0, "Filosofem", "Burzum", 5.99M, 5));
+                vinylDataBase.AddNew(new Vinyl(1, "Transylvanian Hunger", "Darkthrone", 3.99M, 10));
+                vinylDataBase.AddNew(new Vinyl(2, "De Mysteriis Dom Sathanas", "Mayhem", 4.99M, 11));
+                vinylDataBase.AddNew(new Vinyl(3, "Black Metal", "Venom", 2.99M, 45));
+                vinylDataBase.AddNew(new Vinyl(4, "With Hearts Toward None", "Mgla", 1.99M, 9));
             }
         }
 
