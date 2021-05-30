@@ -48,7 +48,7 @@ namespace ClientLogicTests
         }
 
         [Test]
-        public void AddDeviceTest()
+        public void AddVinylsTest()
         {
             Assert.AreEqual(true, vinylService.AddVinyl(new VinylDTO() { inStock = 55, ID = 100, Title = "TestTitle", Band = "TestBand", Price = 1.99m }));
         }

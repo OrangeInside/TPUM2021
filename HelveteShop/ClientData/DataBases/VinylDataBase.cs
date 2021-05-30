@@ -48,17 +48,17 @@ namespace ClientData
             return await Task.FromResult(true);
         }
 
-        IVinyl IDataBase<IVinyl>.Get(int id)
+        public IVinyl Get(int id)
         {
             return dataContext.Vinyls.Find(vinyl => vinyl.ID == id);
         }
 
-        IEnumerable<IVinyl> IDataBase<IVinyl>.GetAll()
+        public IEnumerable<IVinyl> GetAll()
         {
             return dataContext?.Vinyls;
         }
 
-        bool IDataBase<IVinyl>.Remove(int id)
+        public bool Remove(int id)
         {
             return dataContext.Vinyls.RemoveAll(vinyl => vinyl.ID == id) > 0;
         }
