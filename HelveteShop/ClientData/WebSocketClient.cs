@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
 namespace ClientData
 {
     public static class WebSocketClient
     {
+        public static WebSocketConnection CurrentConnection { get; private set; }
+
         public static async Task<WebSocketConnection> Connect(Uri peer, Action<string> log)
         {
             ClientWebSocket clientWebSocket = new ClientWebSocket();
@@ -25,6 +27,12 @@ namespace ClientData
                     log?.Invoke(errorMessage);
                     throw new WebSocketException(errorMessage);
             }
+        }
+
+        public static async Task Disconnect()
+        {
+            await CurrentConnection.DisconnectAsync();
+            CurrentConnection = null;
         }
 
         #region clientwsConnection
@@ -49,7 +57,7 @@ namespace ClientData
 
             public override Task Disconnect()
             {
-                return clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Closing started", CancellationToken.None);
+                return clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Shutdown procedure started", CancellationToken.None);
             }
 
 

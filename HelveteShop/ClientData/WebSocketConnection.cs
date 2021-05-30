@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
+
 namespace ClientData
 {
     public abstract class WebSocketConnection
@@ -12,7 +11,7 @@ namespace ClientData
 
         protected abstract Task SendTask(string message);
 
-        public async Task AsyncSend(string message)
+        public async Task SendAsync(string message)
         {
             await SendTask(message);
         }
