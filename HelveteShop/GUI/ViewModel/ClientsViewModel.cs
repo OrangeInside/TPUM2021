@@ -15,10 +15,6 @@ namespace ClientPresentation.ViewModel
 
         public ClientsViewModel()
         {
-            //clientsManager = ClientLogic.Logic.GetClientsManager();
-
-            //clientsManager.OnRefreshClients += RefreshClients;
-
             AddClientCmd = new CmdAddClient(this);
         }
 
@@ -26,8 +22,6 @@ namespace ClientPresentation.ViewModel
         {
             //clientsManager.OnRefreshClients -= RefreshClients;
         }
-
-        //public ObservableCollection<ClientDTO> Clients => new ObservableCollection<ClientDTO>(clientsManager?.GetAllClientsAsDTO());
 
         #region User Management
 

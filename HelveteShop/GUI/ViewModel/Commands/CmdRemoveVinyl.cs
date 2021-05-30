@@ -14,12 +14,11 @@ namespace ClientPresentation.ViewModel
         public CmdRemoveVinyl(VinylsViewModel vvm)
         {
             vinylsViewModel = vvm;
-            //vinylsManager = ClientLogic.Logic.GetVinylsManager();
         }
 
         public bool CanExecute(object parameter)
         {
-            return vinylsViewModel != null;// && vinylsViewModel.Title != "" && vinylsViewModel.Band != "" && vinylsViewModel.Price != "";
+            return vinylsViewModel != null;
         }
 
         public void Execute(object parameter)

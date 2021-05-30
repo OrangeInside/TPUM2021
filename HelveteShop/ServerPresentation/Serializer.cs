@@ -26,10 +26,5 @@ namespace ServerPresentation
         {
             return JsonSerializer.Deserialize<int>(json);
         }
-
-        /*public static VinylDTO VinylFromJson(string json)
-        {
-            return JsonSerializer.Deserialize<VinylDTO>(json);
-        }*/
     }
 }

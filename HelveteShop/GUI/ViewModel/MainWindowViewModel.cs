@@ -79,7 +79,7 @@ namespace ClientPresentation.ViewModel
             }
         }
 
-        private string log = "Waiting for connection logs";
+        private string log = "Connection logs";
 
         public string Log
         {

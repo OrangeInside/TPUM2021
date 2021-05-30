@@ -14,7 +14,6 @@ namespace ClientPresentation.ViewModel
         public CmdAddVinyl(VinylsViewModel vvm)
         {
             vinylsViewModel = vvm;
-            //vinylsManager = ClientLogic.Logic.GetVinylsManager();
         }
 
         public bool CanExecute(object parameter)

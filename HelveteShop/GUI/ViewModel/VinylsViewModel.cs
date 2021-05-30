@@ -21,12 +21,6 @@ namespace ClientPresentation.ViewModel
 
         public VinylsViewModel()
         {
-            //vinylsManager = ClientLogic.Logic.GetVinylsManager();
-
-            //vinylsManager.OnRefreshVinyls += RefreshVinyls;
-
-            //AddVinylCmd = new CmdAddVinyl(this);
-
             RemoveVinylCmd = new CmdRemoveVinyl(this);
 
             srvVinyl = ServiceFactory.CreateVinylService;

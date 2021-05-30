@@ -33,7 +33,7 @@ namespace ClientLogic.Services
         {
             try
             {
-                ConnectionLogger?.Invoke($"Establishing connection to {peerUri.OriginalString}");
+                ConnectionLogger?.Invoke($"Establishing connection: {peerUri.OriginalString}");
 
                 await WebSocketClient.Connect(peerUri, ConnectionLogger);
 

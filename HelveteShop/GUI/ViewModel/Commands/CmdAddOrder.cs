@@ -14,7 +14,6 @@ namespace ClientPresentation.ViewModel
         public CmdAddOrder(OrdersViewModel ovm)
         {
             ordersViewModel = ovm;
-            //ordersManager = ClientLogic.Logic.GetOrdersManager();
         }
 
         public bool CanExecute(object parameter)
@@ -24,7 +23,7 @@ namespace ClientPresentation.ViewModel
 
         public void Execute(object parameter)
         {
-            //ordersManager?.AddOrder(ordersViewModel.CreateOrderDTO());
+
         }
     }
 }
