@@ -18,26 +18,26 @@ namespace ClientPresentation.ViewModel
 
         public OrdersViewModel()
         {
-            clientsManager = ClientLogic.Logic.GetClientsManager();
-            vinylsManager = ClientLogic.Logic.GetVinylsManager();
-            ordersManager = ClientLogic.Logic.GetOrdersManager();
+            //clientsManager = ClientLogic.Logic.GetClientsManager();
+            //vinylsManager = ClientLogic.Logic.GetVinylsManager();
+            //ordersManager = ClientLogic.Logic.GetOrdersManager();
 
-            ordersManager.OnRefreshOrders += RefreshOrders;
+            //ordersManager.OnRefreshOrders += RefreshOrders;
 
-            SelectedClient = Clients[0];
-            SelectedVinyl = Vinyls[0];
+            //SelectedClient = Clients[0];
+            //SelectedVinyl = Vinyls[0];
 
             AddOrderCmd = new CmdAddOrder(this);
         }
 
         ~OrdersViewModel()
         {
-            ordersManager.OnRefreshOrders -= RefreshOrders;
+            //ordersManager.OnRefreshOrders -= RefreshOrders;
         }
 
-        public ObservableCollection<ClientDTO> Clients => new ObservableCollection<ClientDTO>(clientsManager?.GetAllClientsAsDTO());
-        public ObservableCollection<VinylDTO> Vinyls => new ObservableCollection<VinylDTO>(vinylsManager?.GetAllVinylsAsDTO());
-        public ObservableCollection<OrderDTO> Orders => new ObservableCollection<OrderDTO>(ordersManager?.GetAllOrdersAsDTO());
+        //public ObservableCollection<ClientDTO> Clients => new ObservableCollection<ClientDTO>(clientsManager?.GetAllClientsAsDTO());
+        //public ObservableCollection<VinylDTO> Vinyls => new ObservableCollection<VinylDTO>(vinylsManager?.GetAllVinylsAsDTO());
+        //public ObservableCollection<OrderDTO> Orders => new ObservableCollection<OrderDTO>(ordersManager?.GetAllOrdersAsDTO());
 
         private VinylDTO selectedVinyl = null;
 

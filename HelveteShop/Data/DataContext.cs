@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Data
 {
-    public class DataContext
+    /*public class DataContext
     {
         public List<Client> clients { get; set; }
         public List<Vinyl> vinyls { get; set; }
@@ -18,5 +18,5 @@ namespace Data
             orders = new List<Order>();
             ordersArchive = new List<Order>();
         }
-    }
+    }*/
 }

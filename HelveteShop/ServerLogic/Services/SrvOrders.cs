@@ -20,9 +20,10 @@ namespace ServerLogic
             }
         }
 
-        public async Task<bool> AddOrder(OrderDTO order)
+        public Task<bool> AddOrder(OrderDTO order)
         {
-            return await Task.FromResult(orderDataBase.Add(DTOMapper.Map(order)));
+            return Task.FromResult(true);
+            //return await Task.FromResult(orderDataBase.Add(DTOMapper.Map(order)));
         }
 
         public async Task<IEnumerable<OrderDTO>> GetAllOrders()

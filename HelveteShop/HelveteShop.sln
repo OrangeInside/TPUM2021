@@ -3,11 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{07B9E353-D879-4314-9491-6385D03D48DE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{03D75FE6-8482-42B1-B857-962BECDC5449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientLogic", "Logic\ClientLogic.csproj", "{03D75FE6-8482-42B1-B857-962BECDC5449}"
 	ProjectSection(ProjectDependencies) = postProject
-		{07B9E353-D879-4314-9491-6385D03D48DE} = {07B9E353-D879-4314-9491-6385D03D48DE}
 		{5FD9EC8E-4DBB-426C-89C5-AF207EFCF8C7} = {5FD9EC8E-4DBB-426C-89C5-AF207EFCF8C7}
 	EndProjectSection
 EndProject
@@ -15,14 +12,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientPresentation", "GUI\C
 	ProjectSection(ProjectDependencies) = postProject
 		{03D75FE6-8482-42B1-B857-962BECDC5449} = {03D75FE6-8482-42B1-B857-962BECDC5449}
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTests", "Tests\DataTests.csproj", "{5568F30A-13BF-48E6-8A30-D54CD2252B58}"
-	ProjectSection(ProjectDependencies) = postProject
-		{07B9E353-D879-4314-9491-6385D03D48DE} = {07B9E353-D879-4314-9491-6385D03D48DE}
-		{03D75FE6-8482-42B1-B857-962BECDC5449} = {03D75FE6-8482-42B1-B857-962BECDC5449}
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicTests", "LogicTests\LogicTests.csproj", "{33639AB7-6C4B-4297-B02A-14576EC82BC4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerData", "ServerData\ServerData.csproj", "{680EBB2F-B18F-4609-AB1C-73C1325F81D0}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -43,14 +32,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientData", "ClientData\Cl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonModel", "CommonModel\CommonModel.csproj", "{08C01E1C-64EA-445D-B36E-5DC868B8658C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerLogicTests", "ServerLogicTests\ServerLogicTests.csproj", "{7B90C040-93AF-425D-BFB4-1FD99434936A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerLogicTests", "ServerLogicTests\ServerLogicTests.csproj", "{7B90C040-93AF-425D-BFB4-1FD99434936A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{08C01E1C-64EA-445D-B36E-5DC868B8658C} = {08C01E1C-64EA-445D-B36E-5DC868B8658C}
 		{680EBB2F-B18F-4609-AB1C-73C1325F81D0} = {680EBB2F-B18F-4609-AB1C-73C1325F81D0}
 		{AB039297-68EA-43F1-A866-02C25F2D33FE} = {AB039297-68EA-43F1-A866-02C25F2D33FE}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerDataTests", "ServerDataTests\ServerDataTests.csproj", "{B286FB47-E401-437E-BF79-754B1BA37AD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerDataTests", "ServerDataTests\ServerDataTests.csproj", "{B286FB47-E401-437E-BF79-754B1BA37AD5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{08C01E1C-64EA-445D-B36E-5DC868B8658C} = {08C01E1C-64EA-445D-B36E-5DC868B8658C}
 		{680EBB2F-B18F-4609-AB1C-73C1325F81D0} = {680EBB2F-B18F-4609-AB1C-73C1325F81D0}
@@ -62,10 +51,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{07B9E353-D879-4314-9491-6385D03D48DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07B9E353-D879-4314-9491-6385D03D48DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07B9E353-D879-4314-9491-6385D03D48DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07B9E353-D879-4314-9491-6385D03D48DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03D75FE6-8482-42B1-B857-962BECDC5449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{03D75FE6-8482-42B1-B857-962BECDC5449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03D75FE6-8482-42B1-B857-962BECDC5449}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,14 +59,6 @@ Global
 		{3B64CE46-3E8B-478E-A32A-0E6FC8152192}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B64CE46-3E8B-478E-A32A-0E6FC8152192}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B64CE46-3E8B-478E-A32A-0E6FC8152192}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5568F30A-13BF-48E6-8A30-D54CD2252B58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33639AB7-6C4B-4297-B02A-14576EC82BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33639AB7-6C4B-4297-B02A-14576EC82BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33639AB7-6C4B-4297-B02A-14576EC82BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33639AB7-6C4B-4297-B02A-14576EC82BC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{680EBB2F-B18F-4609-AB1C-73C1325F81D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{680EBB2F-B18F-4609-AB1C-73C1325F81D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{680EBB2F-B18F-4609-AB1C-73C1325F81D0}.Release|Any CPU.ActiveCfg = Release|Any CPU

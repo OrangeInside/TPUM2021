@@ -14,7 +14,7 @@ namespace ClientPresentation.ViewModel
         public CmdAddClient(ClientsViewModel cvm)
         {
             clientsViewModel = cvm;
-            clientsManager = ClientLogic.Logic.GetClientsManager();
+            //clientsManager = ClientLogic.Logic.GetClientsManager();
         }
 
         public bool CanExecute(object parameter)
@@ -24,7 +24,7 @@ namespace ClientPresentation.ViewModel
 
         public void Execute(object parameter)
         {
-            clientsManager?.AddClient(clientsViewModel.CreateClientDTO());
+            //clientsManager?.AddClient(clientsViewModel.CreateClientDTO());
             clientsViewModel?.ClearUserInputs();
         }
     }

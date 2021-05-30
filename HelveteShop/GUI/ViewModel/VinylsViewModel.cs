@@ -16,7 +16,7 @@ namespace ClientPresentation.ViewModel
 
         public VinylsViewModel()
         {
-            vinylsManager = ClientLogic.Logic.GetVinylsManager();
+            //vinylsManager = ClientLogic.Logic.GetVinylsManager();
 
             vinylsManager.OnRefreshVinyls += RefreshVinyls;
 
@@ -28,7 +28,7 @@ namespace ClientPresentation.ViewModel
             vinylsManager.OnRefreshVinyls -= RefreshVinyls;
         }
 
-        public ObservableCollection<VinylDTO> Vinyls => new ObservableCollection<VinylDTO>(vinylsManager?.GetAllVinylsAsDTO());
+        //public ObservableCollection<VinylDTO> Vinyls => new ObservableCollection<VinylDTO>(vinylsManager?.GetAllVinylsAsDTO());
 
         #region Vinyl Management
 

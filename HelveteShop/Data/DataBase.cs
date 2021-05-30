@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Data
 {
-    public partial class DataBase : IDataBase
+    /*public partial class DataBase : IDataBase
     {
         private DataContext dataContext;
 
@@ -188,7 +188,7 @@ namespace Data
 
         #endregion
 
-    }
+    }*/
 
 
 }

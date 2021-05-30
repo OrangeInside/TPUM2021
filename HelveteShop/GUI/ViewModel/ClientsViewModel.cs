@@ -15,19 +15,19 @@ namespace ClientPresentation.ViewModel
 
         public ClientsViewModel()
         {
-            clientsManager = ClientLogic.Logic.GetClientsManager();
+            //clientsManager = ClientLogic.Logic.GetClientsManager();
 
-            clientsManager.OnRefreshClients += RefreshClients;
+            //clientsManager.OnRefreshClients += RefreshClients;
 
             AddClientCmd = new CmdAddClient(this);
         }
 
         ~ClientsViewModel()
         {
-            clientsManager.OnRefreshClients -= RefreshClients;
+            //clientsManager.OnRefreshClients -= RefreshClients;
         }
 
-        public ObservableCollection<ClientDTO> Clients => new ObservableCollection<ClientDTO>(clientsManager?.GetAllClientsAsDTO());
+        //public ObservableCollection<ClientDTO> Clients => new ObservableCollection<ClientDTO>(clientsManager?.GetAllClientsAsDTO());
 
         #region User Management
 

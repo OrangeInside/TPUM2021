@@ -62,10 +62,10 @@ namespace ClientData
             }
         }
 
-        bool IDataBase<IOrder>.Add(IOrder item)
+        /*bool IDataBase<IOrder>.Add(IOrder item)
         {
             throw new NotImplementedException();
-        }
+        }*/
 
         IOrder IDataBase<IOrder>.Get(int id)
         {

@@ -1,11 +1,10 @@
-﻿using CommonModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Data
 {
-    public static class Data
+    /*public static class Data
     {
         private static IDataBase dataBase = null;
 
@@ -24,5 +23,5 @@ namespace Data
             dataBase = new DataBase(new DataFactory());
         }
 
-    }
+    }*/
 }

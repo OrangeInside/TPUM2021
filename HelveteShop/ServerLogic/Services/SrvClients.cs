@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using CommonModel;
-using CommonModel;
 using ServerData;
 
 namespace ServerLogic
@@ -22,9 +21,10 @@ namespace ServerLogic
             }
         }
 
-        public async Task<bool> AddClient(ClientDTO client)
+        public Task<bool> AddClient(ClientDTO client)
         {
-            return await Task.FromResult(clientDataBase.Add(DTOMapper.Map(client)));
+            return Task.FromResult(true);
+            //return await Task.FromResult(clientDataBase.Add(DTOMapper.Map(client)));
         }
 
         public async Task<IEnumerable<ClientDTO>> GetAllClients()

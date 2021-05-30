@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using CommonModel;
 
 namespace ServerData
@@ -15,6 +16,8 @@ namespace ServerData
             this.dataContext = DataContext.Instance;
         }
 
+        public event Action DataChanged;
+
         public void Add(IOrder item)
         {
             dataContext?.Orders?.Add(item);
@@ -28,6 +31,11 @@ namespace ServerData
         public IOrder GetClient(int id)
         {
             return dataContext.Orders.Find(order => order.ID == id);
+        }
+
+        public Task Refresh()
+        {
+            throw new NotImplementedException();
         }
 
         public bool Remove(IOrder item)
@@ -53,7 +61,12 @@ namespace ServerData
             }
         }
 
-        bool IDataBase<IOrder>.Add(IOrder item)
+        /*bool IDataBase<IOrder>.Add(IOrder item)
+        {
+            throw new NotImplementedException();
+        }*/
+
+        Task<bool> IDataBase<IOrder>.Add(IOrder item)
         {
             throw new NotImplementedException();
         }

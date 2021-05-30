@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using CommonModel;
 
 namespace ServerData
@@ -9,6 +10,8 @@ namespace ServerData
     {
         private readonly DataContext dataContext;
         private readonly object itemLock = new object();
+
+        public event Action DataChanged;
 
         public ClientDataBase()
         {
@@ -52,6 +55,16 @@ namespace ServerData
 
                 return true;
             }
+        }
+
+        Task<bool> IDataBase<IClient>.Add(IClient item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Refresh()
+        {
+            throw new NotImplementedException();
         }
     }
 }
