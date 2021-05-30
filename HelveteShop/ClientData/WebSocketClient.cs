@@ -20,6 +20,8 @@ namespace ClientData
                 case WebSocketState.Open:
                     log?.Invoke($"Opened connection to remote server: {peer}");
                     WebSocketConnection socketConnection = new ClientWebSocketConnection(clientWebSocket, peer, log);
+                    socketConnection.onMessage = DataContext.Instance.ReceiveData;
+                    CurrentConnection = socketConnection;
                     return socketConnection;
 
                 default:

@@ -13,6 +13,8 @@ namespace ClientPresentation.ViewModel
         private readonly SrvConnect serviceConnect;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public static event Action OnConnectionEstablished;
+        public static event Action OnConnectionLost;
 
         private string connectionUri = "ws://localhost:8081/";
         public string ConnectionUri
@@ -43,7 +45,7 @@ namespace ClientPresentation.ViewModel
 
             ConnectCmd = new CmdConnect(this);
 
-            Clients.Execute(null);
+            Vinyls.Execute(null);
 
             PopupText = "";
             ShowPopupInfo = Visibility.Hidden;
@@ -132,6 +134,7 @@ namespace ClientPresentation.ViewModel
             if (result)
             {
                 ConnectButtonText = "Disconnect";
+                OnConnectionEstablished?.Invoke();
             }
             else
             {
@@ -145,6 +148,7 @@ namespace ClientPresentation.ViewModel
         {
             await serviceConnect.Disconnect();
             ConnectButtonText = "Connect";
+            OnConnectionLost?.Invoke();
         }
 
         public void ShowLog(string log)

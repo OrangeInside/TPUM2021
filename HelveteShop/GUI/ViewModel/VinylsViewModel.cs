@@ -8,6 +8,9 @@ namespace ClientPresentation.ViewModel
 {
     public class VinylsViewModel : INotifyPropertyChanged
     {
+        private ObservableCollection<VinylDTO> vinyls;
+        private readonly IVinylService srvVinyl;
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void RefreshVinyls() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));
 
@@ -18,9 +21,22 @@ namespace ClientPresentation.ViewModel
         {
             //vinylsManager = ClientLogic.Logic.GetVinylsManager();
 
-            vinylsManager.OnRefreshVinyls += RefreshVinyls;
+            //vinylsManager.OnRefreshVinyls += RefreshVinyls;
 
-            AddVinylCmd = new CmdAddVinyl(this);
+            //AddVinylCmd = new CmdAddVinyl(this);
+
+            srvVinyl = ServiceFactory.CreateVinylService;
+            //srvVinyl.DeviceChange += UpdateDevices;
+            vinyls = new ObservableCollection<VinylDTO>();
+
+            MainWindowViewModel.OnConnectionEstablished += RequestVinyls;
+            MainWindowViewModel.OnConnectionLost += CleanVinyls;
+
+            /*NewDeviceCommand = new NewDeviceCommand(this);
+            ToggleDeviceCommand = new ToggleDeviceCommand(this);
+            SaveDeviceCommand = new AddDeviceCommand(this);
+            EditDeviceCommand = new EditDeviceCommand(this);
+            DeleteDeviceCommand = new MessageBoxCommand(new DeleteDeviceCommand(this), null, "Do you really want to delete this device?");*/
         }
 
         ~VinylsViewModel()
@@ -28,7 +44,15 @@ namespace ClientPresentation.ViewModel
             vinylsManager.OnRefreshVinyls -= RefreshVinyls;
         }
 
-        //public ObservableCollection<VinylDTO> Vinyls => new ObservableCollection<VinylDTO>(vinylsManager?.GetAllVinylsAsDTO());
+        private async void RequestVinyls()
+        {
+            await srvVinyl.RefreshVinyls();
+        }
+
+        private void CleanVinyls()
+        {
+            Vinyls.Clear();
+        }
 
         #region Vinyl Management
 
@@ -84,6 +108,22 @@ namespace ClientPresentation.ViewModel
                 Band = this.Band,
                 Price = Decimal.Parse(this.Price)
             };
+        }
+
+        public ObservableCollection<VinylDTO> Vinyls
+        {
+            get => vinyls;
+            set
+            {
+                vinyls = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));
+            }
+        }
+
+        public void UpdateDevices()
+        {
+            vinyls = new ObservableCollection<VinylDTO>(srvVinyl.GetVinyls());
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));
         }
 
         #endregion
