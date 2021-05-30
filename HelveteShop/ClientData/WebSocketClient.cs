@@ -19,9 +19,12 @@ namespace ClientData
             {
                 case WebSocketState.Open:
                     log?.Invoke($"Opened connection to remote server: {peer}");
+
                     WebSocketConnection socketConnection = new ClientWebSocketConnection(clientWebSocket, peer, log);
+
                     socketConnection.onMessage = DataContext.Instance.ReceiveData;
                     CurrentConnection = socketConnection;
+
                     return socketConnection;
 
                 default:
@@ -51,6 +54,7 @@ namespace ClientData
                 this.clientWebSocket = clientWebSocket;
                 Task.Factory.StartNew(ClientMessageLoop);
             }
+            public override bool IsConnected => clientWebSocket.State == WebSocketState.Open;
 
             protected override Task SendTask(string message)
             {

@@ -10,36 +10,47 @@ using ClientData;
 
 namespace ClientLogic.Services
 {
-    public class SrvConnect
+    public class SrvConnect : IConnectionSerivce
     {
-        public bool IsConnected => clientSocketConnection != null;
 
-        public Action<string> connectLogger;
-        public WebSocketConnection clientSocketConnection;
+        public Action<string> ConnectionLogger { get; set; }
 
-        public async Task<bool> Connect(Uri peerUri, Action<string> logger)
+        public bool Connected
         {
-            try
+            get
             {
-                connectLogger = logger;
-                connectLogger?.Invoke($"Establishing connection to {peerUri.OriginalString}");
+                if (WebSocketClient.CurrentConnection != null)
+                {
+                    return WebSocketClient.CurrentConnection.IsConnected;
+                }
 
-                clientSocketConnection = await WebSocketClient.Connect(peerUri, connectLogger);
-
-                return true;
-            }
-            catch (WebSocketException e)
-            {
-                Debug.WriteLine($"Caught web socket exception {e.Message}");
-                connectLogger?.Invoke(e.Message);
                 return false;
             }
         }
 
+
+        public async Task<bool> Connect(Uri peerUri)
+        {
+            try
+            {
+                ConnectionLogger?.Invoke($"Establishing connection to {peerUri.OriginalString}");
+
+                await WebSocketClient.Connect(peerUri, ConnectionLogger);
+
+                return await Task.FromResult(true);
+            }
+            catch (WebSocketException e)
+            {
+                Debug.WriteLine($"Caught web socket exception {e.Message}");
+                ConnectionLogger?.Invoke(e.Message);
+                return await Task.FromResult(false);
+            }
+
+        }
+
         public async Task Disconnect()
         {
-            await clientSocketConnection.Disconnect();
-            clientSocketConnection = null;
+            await WebSocketClient.Disconnect();
         }
     }
 }

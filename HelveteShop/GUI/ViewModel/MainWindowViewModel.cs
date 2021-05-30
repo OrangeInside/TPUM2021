@@ -10,7 +10,7 @@ namespace ClientPresentation.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        private readonly SrvConnect serviceConnect;
+        private readonly IConnectionSerivce serviceConnect;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public static event Action OnConnectionEstablished;
@@ -123,13 +123,13 @@ namespace ClientPresentation.ViewModel
 
         public bool IsServiceConnected()
         {
-            return serviceConnect.IsConnected;
+            return serviceConnect.Connected;
         }
 
         public async Task<bool> EstablishConnection(Uri peerUri)
         {
             ConnectButtonText = "Connecting";
-            bool result = await serviceConnect.Connect(peerUri, ShowLog);
+            bool result = await serviceConnect.Connect(peerUri);
 
             if (result)
             {
