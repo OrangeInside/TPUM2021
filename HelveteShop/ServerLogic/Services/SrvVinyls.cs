@@ -40,6 +40,7 @@ namespace ServerLogic
 
         public async Task<bool> AddVinyl(int id, int count)
         {
+            //return await Task.FromResult(vinylDataBase.Get(id) != null);
             return await Task.FromResult(vinylDataBase.AddStock(id, count));
         }
 

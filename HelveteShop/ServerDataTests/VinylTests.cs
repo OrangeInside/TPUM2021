@@ -29,5 +29,17 @@ namespace ServerDataTests
         {
             Assert.AreEqual(true, vinylDB.AddStock(0, 1));
         }
+
+        [Test]
+        public void RemoveStockTest()
+        {
+            Assert.AreEqual(true, vinylDB.RemoveStock(2, 1));
+        }
+
+        [Test]
+        public void RemoveTest()
+        {
+            Assert.AreEqual(true, vinylDB.Remove(3));
+        }
     }
 }
