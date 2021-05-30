@@ -22,7 +22,9 @@ namespace ServerLogic
             if (vinylDataBase == null)
             {
                 vinylDataBase = new VinylDataBase();
-                vinylDataBase.AddNew(new Vinyl(0, "With Hearts Toward None", "Mgla", 15.99m, 5));
+                vinylDataBase.AddNew(new Vinyl(0, "With Hearts Toward None", "Mgla", 15.99m, 1));
+                vinylDataBase.AddNew(new Vinyl(1, "With Hearts Toward Everything", "Night", 16.12m, 5));
+                vinylDataBase.AddNew(new Vinyl(2, "With Legs Toward None", "Day", 16.99m, 2));
             }
         }
 

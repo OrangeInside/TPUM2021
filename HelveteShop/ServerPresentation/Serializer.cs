@@ -17,6 +17,8 @@ namespace ServerPresentation
 
             stringToReturn += JsonSerializer.Serialize(vinyls);
 
+            Console.WriteLine("Prepared data: " + stringToReturn);
+
             return stringToReturn;
         }
 

@@ -32,8 +32,9 @@ namespace ServerPresentation
         static async void ParseMessage(string message)
         {
             Console.WriteLine($"[From Client]: {message}");
-            if (message.Contains("GetVinyls"))
+            if (message.Contains("UpdateDataRequest"))
             {
+                Console.WriteLine("[From Server]: Prepare data");
                 await SendVinyls();
             }
             else if (message.Contains("AddVinyl"))
@@ -61,6 +62,7 @@ namespace ServerPresentation
         static async Task SendVinyls()
         {
             await CurrentConnection.SendAsync(Serializer.AllDataToJson(srvVinyls));
+            Console.WriteLine("[From Server]: Send Vinyls Data");
         }
     }
 }

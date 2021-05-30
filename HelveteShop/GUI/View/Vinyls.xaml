@@ -23,10 +23,10 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
+                    <GridViewColumn Header="In stock" DisplayMemberBinding="{Binding inStock}" Width="75"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="75"/>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
                     <GridViewColumn Header="Band" DisplayMemberBinding="{Binding Band}" Width="150"/>
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="75"/>
-                    <GridViewColumn Header="In stock" DisplayMemberBinding="{Binding inStock}" Width="75"/>
                 </GridView>
             </ListView.View>
         </ListView>
