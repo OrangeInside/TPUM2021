@@ -10,22 +10,23 @@
       Title="Vinyls">
 
     <Page.Resources>
-        <vm:VinylsViewModel x:Key="vinylsVM"/>
+        <!--<vm:VinylsViewModel x:Key="vinylsVM"/>-->
     </Page.Resources>
 
-    <Grid x:Name="VinylsPanel" DataContext="{StaticResource vinylsVM}">
+    <Grid x:Name="VinylsPanel">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="vinylsList" ItemsSource="{Binding Vinyls}">
+        <ListView x:Name="vinylsList" ItemsSource="{Binding Vinyls}" SelectedItem="{Binding SelectedVinyl}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="30"/>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
                     <GridViewColumn Header="Band" DisplayMemberBinding="{Binding Band}" Width="150"/>
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="75"/>
+                    <GridViewColumn Header="In stock" DisplayMemberBinding="{Binding inStock}" Width="75"/>
                 </GridView>
             </ListView.View>
         </ListView>
