@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CommonModel.Interfaces;
+using CommonModel;
 
 namespace ServerData
 {
-    public class VinylDataBase : IDataBase<IVinyl>
+    public class VinylDataBase : IVinylDatabase
     {
         private readonly DataContext dataContext;
         private readonly object itemLock = new object();
@@ -18,6 +18,35 @@ namespace ServerData
         public void Add(IVinyl item)
         {
             dataContext?.Vinyls?.Add(item);
+        }
+
+        public bool AddNew(IVinyl item)
+        {
+            dataContext?.Vinyls?.Add(item);
+            return true;
+        }
+
+        public bool AddStock(int id, int count)
+        {
+            IVinyl vinyl = Get(id);
+
+            if (vinyl != null)
+            {
+                vinyl.inStock += count;
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public IEnumerable<IVinyl> Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IVinyl Get(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<IVinyl> GetAll()
@@ -33,6 +62,16 @@ namespace ServerData
         public bool Remove(IVinyl item)
         {
             return dataContext.Vinyls.Remove(item);
+        }
+
+        public bool Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveStock(int id, int count)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Update(IVinyl item, int id)

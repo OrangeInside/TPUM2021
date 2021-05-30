@@ -11,13 +11,15 @@ namespace CommonModel
         public string title { get; set; }
         public string band { get; set; }
         public decimal price { get; set; }
-        
-        public Vinyl(int ID, string title, string band, decimal price)
+        public int inStock { get; set; }
+
+        public Vinyl(int ID, string title, string band, decimal price, int inStock = 0)
         {
             this.ID = ID;
             this.title = title;
             this.band = band;
             this.price = price;
+            this.inStock = inStock;
         }
 
         public override string ToString()
@@ -26,6 +28,7 @@ namespace CommonModel
             vinylInfo += "Title: " + title;
             vinylInfo += "\tBand: " + band;
             vinylInfo += "\tPrice: " + price + " PLN";
+            vinylInfo += "\tInStock: " + inStock;
             return vinylInfo;
         }
     }

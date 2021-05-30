@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommonModel.Interfaces
+namespace CommonModel
 {
     public interface IData
     {
