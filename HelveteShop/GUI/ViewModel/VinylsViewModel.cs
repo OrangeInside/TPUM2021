@@ -10,12 +10,14 @@ namespace ClientPresentation.ViewModel
     {
         private ObservableCollection<VinylDTO> vinyls;
         private readonly IVinylService srvVinyl;
+        private VinylDTO selectedVinyl;
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void RefreshVinyls() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));
 
         private IVinylService vinylsManager = null;
         public ICommand AddVinylCmd { get; set; } = null;
+        public ICommand RemoveVinylCmd { get; set; } = null;
 
         public VinylsViewModel()
         {
@@ -24,6 +26,8 @@ namespace ClientPresentation.ViewModel
             //vinylsManager.OnRefreshVinyls += RefreshVinyls;
 
             //AddVinylCmd = new CmdAddVinyl(this);
+
+            RemoveVinylCmd = new CmdRemoveVinyl(this);
 
             srvVinyl = ServiceFactory.CreateVinylService;
             srvVinyl.OnRefreshVinyls += UpdateVinyls;
@@ -52,6 +56,14 @@ namespace ClientPresentation.ViewModel
         private void CleanVinyls()
         {
             Vinyls.Clear();
+        }
+
+        public IVinylService SrvVinyl
+        {
+            get
+            {
+                return (IVinylService)srvVinyl;
+            }
         }
 
         #region Vinyl Management
@@ -124,6 +136,16 @@ namespace ClientPresentation.ViewModel
         {
             vinyls = new ObservableCollection<VinylDTO>(srvVinyl.GetVinyls());
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));
+        }
+
+        public VinylDTO SelectedVinyl
+        {
+            get => selectedVinyl;
+            set
+            {
+                selectedVinyl = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedVinyl"));
+            }
         }
 
         #endregion

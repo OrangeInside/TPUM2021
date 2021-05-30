@@ -81,5 +81,12 @@ namespace ClientData
         {
             await dataContext.RequestDataUpdate();
         }
+
+        public async Task<bool> Remove(int id, int count)
+        {
+            await dataContext.RequestWithConfirmation($"RemoveVinyl:{id}:{count}");
+            await dataContext.RequestDataUpdate();
+            return await Task.FromResult(true);
+        }
     }
 }

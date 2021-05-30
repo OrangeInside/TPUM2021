@@ -96,5 +96,10 @@ namespace ClientData
         {
             throw new NotImplementedException();
         }
+
+        public Task<bool> Remove(int id, int count)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

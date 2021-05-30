@@ -9,6 +9,7 @@ namespace ClientData
     {
         Task<bool> Add(T item);
         bool Remove(int id);
+        Task<bool> Remove(int id, int count);
         T Get(int id);
         bool Update(T item, int id);
         IEnumerable<T> GetAll();

@@ -80,6 +80,10 @@ namespace ClientLogic
             throw new NotImplementedException();
         }
 
+        public async Task RemoveVinyl(int id, int count)
+        {
+            await vinylsDataBase.Remove(id, count);
+        }
     }
 }
 
