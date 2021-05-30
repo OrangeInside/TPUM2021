@@ -10,10 +10,10 @@
       Title="Vinyls">
 
     <Page.Resources>
-        <!--<vm:VinylsViewModel x:Key="vinylsVM"/>-->
+        <vm:VinylsViewModel x:Key="vinylsVM"/>
     </Page.Resources>
 
-    <Grid x:Name="VinylsPanel">
+    <Grid x:Name="VinylsPanel" DataContext="{StaticResource vinylsVM}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
