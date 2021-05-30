@@ -11,6 +11,12 @@ namespace ServerLogic
     {
         private IVinylDatabase vinylDataBase = null;
 
+        //class for tests
+        public SrvVinyls(IVinylDatabase vinylDB)
+        {
+            vinylDataBase = vinylDB;
+        }
+
         public SrvVinyls()
         {
             if (vinylDataBase == null)
