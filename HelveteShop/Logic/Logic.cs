@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Logic
+namespace ClientLogic
 {
     public static class Logic
     {
-        private static IClientsManager clientsManager = null;
-        private static IVinylsManager vinylsManager = null;
-        private static IOrdersManager ordersManager = null;
+        private static IClientService clientsManager = null;
+        private static IVinylService vinylsManager = null;
+        private static IOrderService ordersManager = null;
 
-        public static IClientsManager GetClientsManager()
+        public static IClientService GetClientsManager()
         {
             if (clientsManager == null)
             {
@@ -19,7 +19,7 @@ namespace Logic
 
             return clientsManager;
         }
-        public static IVinylsManager GetVinylsManager()
+        public static IVinylService GetVinylsManager()
         {
             if (vinylsManager == null)
             {
@@ -29,7 +29,7 @@ namespace Logic
             return vinylsManager;
         }
 
-        public static IOrdersManager GetOrdersManager()
+        public static IOrderService GetOrdersManager()
         {
             if (ordersManager == null)
             {

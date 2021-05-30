@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
-using Logic;
+using ClientLogic;
 using System.Windows.Input;
 using System.Windows;
-using Logic.Services;
+using ClientLogic.Services;
 using System.Threading.Tasks;
 using System;
 

@@ -31,7 +31,7 @@ namespace ClientData
 
         public static async Task Disconnect()
         {
-            await CurrentConnection.DisconnectAsync();
+            await CurrentConnection.Disconnect();
             CurrentConnection = null;
         }
 

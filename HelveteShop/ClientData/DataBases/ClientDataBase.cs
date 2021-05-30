@@ -1,16 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using CommonModel;
 
 namespace ClientData
 {
-    class ClientDataBase : IDataBase<IClient>
+    public class ClientDataBase : IDataBase<IClient>
     {
         private readonly DataContext dataContext;
 
-        public ClientDataBase(DataContext dataContext)
+        private static ClientDataBase instance;
+
+        public event Action DataChanged;
+
+        public static ClientDataBase Instance
         {
-            this.dataContext = dataContext;
+            get
+            {
+                if (instance == null)
+                    instance = new ClientDataBase();
+
+                return instance;
+            }
+
+            private set => instance = value;
         }
 
         public void Add(IClient item)
@@ -57,7 +70,12 @@ namespace ClientData
             }
         }
 
-        bool IDataBase<IClient>.Add(IClient item)
+        Task<bool> IDataBase<IClient>.Add(IClient item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Refresh()
         {
             throw new NotImplementedException();
         }

@@ -1,18 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CommonModel.Interfaces;
+using System.Threading.Tasks;
+using CommonModel;
 
 namespace ClientData
 {
-    class OrderDataBase : IDataBase<IOrder>
+    public class OrderDataBase : IDataBase<IOrder>
     {
         private readonly DataContext dataContext;
 
-        public OrderDataBase(DataContext dataContext)
+        private static OrderDataBase instance;
+
+        public event Action DataChanged;
+
+        public static OrderDataBase Instance
         {
-            this.dataContext = dataContext;
+            get
+            {
+                if (instance == null)
+                    instance = new OrderDataBase();
+
+                return instance;
+            }
+
+            private set => instance = value;
         }
+
 
         public void Add(IOrder item)
         {
@@ -69,6 +83,16 @@ namespace ClientData
         }
 
         bool IDataBase<IOrder>.Update(IOrder item, int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<bool> IDataBase<IOrder>.Add(IOrder item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Refresh()
         {
             throw new NotImplementedException();
         }

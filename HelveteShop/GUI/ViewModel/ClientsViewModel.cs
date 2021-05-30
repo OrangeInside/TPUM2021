@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using Logic;
+using ClientLogic;
 using System.Windows.Input;
 
 namespace ClientPresentation.ViewModel
@@ -10,12 +10,12 @@ namespace ClientPresentation.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void RefreshClients() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Clients"));
 
-        private IClientsManager clientsManager = null;
+        private IClientService clientsManager = null;
         public ICommand AddClientCmd { get; set; } = null;
 
         public ClientsViewModel()
         {
-            clientsManager = Logic.Logic.GetClientsManager();
+            clientsManager = ClientLogic.Logic.GetClientsManager();
 
             clientsManager.OnRefreshClients += RefreshClients;
 

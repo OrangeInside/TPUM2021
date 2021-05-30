@@ -18,6 +18,8 @@ namespace CommonModel
             this.vinyl = vinyl;
         }
 
+        public Order() { }
+
         public override string ToString()
         {
             string orderInfo = "";

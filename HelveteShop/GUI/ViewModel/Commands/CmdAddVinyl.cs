@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-using Logic;
+using ClientLogic;
 
 namespace ClientPresentation.ViewModel
 {
@@ -9,12 +9,12 @@ namespace ClientPresentation.ViewModel
         public event EventHandler CanExecuteChanged;
 
         private VinylsViewModel vinylsViewModel = null;
-        private IVinylsManager vinylsManager = null;
+        private IVinylService vinylsManager = null;
 
         public CmdAddVinyl(VinylsViewModel vvm)
         {
             vinylsViewModel = vvm;
-            vinylsManager = Logic.Logic.GetVinylsManager();
+            vinylsManager = ClientLogic.Logic.GetVinylsManager();
         }
 
         public bool CanExecute(object parameter)

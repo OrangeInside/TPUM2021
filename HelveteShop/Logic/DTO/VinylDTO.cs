@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Logic
+namespace ClientLogic
 {
     public class VinylDTO
     {
@@ -10,5 +10,6 @@ namespace Logic
         public string Title { get; set; }
         public string Band { get; set; }
         public decimal Price { get; set; }
+        public int inStock { get; set; }
     }
 }

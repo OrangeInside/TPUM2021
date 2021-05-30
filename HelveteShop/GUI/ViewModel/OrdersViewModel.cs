@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using Logic;
+using ClientLogic;
 using System.Windows.Input;
 
 namespace ClientPresentation.ViewModel
@@ -10,17 +10,17 @@ namespace ClientPresentation.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void RefreshOrders() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Orders"));
 
-        private IClientsManager clientsManager = null;
-        private IVinylsManager vinylsManager = null;
-        private IOrdersManager ordersManager = null;
+        private IClientService clientsManager = null;
+        private IVinylService vinylsManager = null;
+        private IOrderService ordersManager = null;
 
         public ICommand AddOrderCmd { get; set; } = null;
 
         public OrdersViewModel()
         {
-            clientsManager = Logic.Logic.GetClientsManager();
-            vinylsManager = Logic.Logic.GetVinylsManager();
-            ordersManager = Logic.Logic.GetOrdersManager();
+            clientsManager = ClientLogic.Logic.GetClientsManager();
+            vinylsManager = ClientLogic.Logic.GetVinylsManager();
+            ordersManager = ClientLogic.Logic.GetOrdersManager();
 
             ordersManager.OnRefreshOrders += RefreshOrders;
 

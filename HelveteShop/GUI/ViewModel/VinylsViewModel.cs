@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using Logic;
+using ClientLogic;
 using System.Windows.Input;
 
 namespace ClientPresentation.ViewModel
@@ -11,12 +11,12 @@ namespace ClientPresentation.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void RefreshVinyls() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Vinyls"));
 
-        private IVinylsManager vinylsManager = null;
+        private IVinylService vinylsManager = null;
         public ICommand AddVinylCmd { get; set; } = null;
 
         public VinylsViewModel()
         {
-            vinylsManager = Logic.Logic.GetVinylsManager();
+            vinylsManager = ClientLogic.Logic.GetVinylsManager();
 
             vinylsManager.OnRefreshVinyls += RefreshVinyls;
 

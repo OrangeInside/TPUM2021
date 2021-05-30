@@ -1,76 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
 using CommonModel;
 
 namespace ClientData
 {
-    class VinylDataBase : IDataBase<IVinyl>
+    public class VinylDataBase : IDataBase<IVinyl>
     {
         private readonly DataContext dataContext;
 
-        public VinylDataBase(DataContext dataContext)
-        {
-            this.dataContext = dataContext;
-        }
+        public event Action DataChanged;
 
-        public void Add(IVinyl item)
+        private static VinylDataBase instance;
+        public static VinylDataBase Instance
         {
-            dataContext?.Vinyls?.Add(item);
-        }
-
-        public IEnumerable<IVinyl> GetAll()
-        {
-            return dataContext?.Vinyls;
-        }
-
-        public IVinyl GetClient(int id)
-        {
-            return dataContext.Vinyls.Find(vinyl => vinyl.ID == id);
-        }
-
-        public bool Remove(IVinyl item)
-        {
-            return dataContext.Vinyls.Remove(item);
-        }
-
-        public bool Update(IVinyl item, int id)
-        {
-            IVinyl targetVinyl = dataContext.Vinyls.Find(vinyl => vinyl.ID == id);
-
-            if (targetVinyl == null)
-                return false;
-            else
+            get
             {
-                targetVinyl.band = item.band;
-                targetVinyl.price = item.price;
-                targetVinyl.title = item.title;
-                return true;
+                if (instance == null)
+                    instance = new VinylDataBase();
+
+                return instance;
             }
+
+            private set => instance = value;
         }
 
-        bool IDataBase<IVinyl>.Add(IVinyl item)
+        public VinylDataBase()
         {
-            throw new NotImplementedException();
+            this.dataContext = DataContext.Instance;
+            dataContext.VinylsChanged += DataChangedInvoke;
+        }
+
+        private void DataChangedInvoke()
+        {
+            DataChanged?.Invoke();
+        }
+
+        public async Task<bool> Add(IVinyl item)
+        {
+            string addVinylRequest = "AddVinyl";
+            addVinylRequest += JsonSerializer.Serialize((Vinyl)item);
+
+            await dataContext.RequestWithConfirmation(addVinylRequest);
+            await dataContext.RequestDataUpdate();
+
+            return await Task.FromResult(true);
         }
 
         IVinyl IDataBase<IVinyl>.Get(int id)
         {
-            throw new NotImplementedException();
+            return dataContext.Vinyls.Find(vinyl => vinyl.ID == id);
         }
 
         IEnumerable<IVinyl> IDataBase<IVinyl>.GetAll()
         {
-            throw new NotImplementedException();
+            return dataContext?.Vinyls;
         }
 
         bool IDataBase<IVinyl>.Remove(int id)
         {
-            throw new NotImplementedException();
+            return dataContext.Vinyls.RemoveAll(vinyl => vinyl.ID == id) > 0;
         }
 
         bool IDataBase<IVinyl>.Update(IVinyl item, int id)
         {
-            throw new NotImplementedException();
+            IVinyl found = dataContext.Vinyls.Find(vinyl => vinyl.ID == id);
+            if (found != null)
+            {
+                found.title = item.title;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public async Task Refresh()
+        {
+            await dataContext.RequestDataUpdate();
         }
     }
 }

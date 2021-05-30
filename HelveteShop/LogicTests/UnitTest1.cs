@@ -1,20 +1,20 @@
 using NUnit.Framework;
-using Logic;
+using ClientLogic;
 
 namespace LogicTests
 {
     public class Tests
     {
-        IClientsManager clientsManager = null;
-        IVinylsManager vinylsManager = null;
-        IOrdersManager ordersManager = null;
+        IClientService clientsManager = null;
+        IVinylService vinylsManager = null;
+        IOrderService ordersManager = null;
 
         [SetUp]
         public void Setup()
         {
-            clientsManager = Logic.Logic.GetClientsManager();
-            vinylsManager = Logic.Logic.GetVinylsManager();
-            ordersManager = Logic.Logic.GetOrdersManager();
+            clientsManager = ClientLogic.Logic.GetClientsManager();
+            vinylsManager = ClientLogic.Logic.GetVinylsManager();
+            ordersManager = ClientLogic.Logic.GetOrdersManager();
         }
 
         [Test]

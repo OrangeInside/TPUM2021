@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Net.WebSockets;
 using ClientData;
 
-namespace Logic.Services
+namespace ClientLogic.Services
 {
     public class SrvConnect
     {

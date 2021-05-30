@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Data;
+using CommonModel;
 
-namespace Logic
+namespace ClientLogic
 {
     public static class DTOMapper
     {
         public static ClientDTO Map(Client client)
+        {
+            ClientDTO clientDTO = new ClientDTO
+            {
+                ID = client.ID,
+                Name = client.name,
+                Address = client.address
+            };
+
+            return clientDTO;
+        }
+
+        public static ClientDTO Map(IClient client)
         {
             ClientDTO clientDTO = new ClientDTO
             {
@@ -32,6 +44,24 @@ namespace Logic
             return vinylDTO;
         }
 
+        public static VinylDTO Map(IVinyl vinyl)
+        {
+            VinylDTO vinylDTO = new VinylDTO
+            {
+                ID = vinyl.ID,
+                Title = vinyl.title,
+                Band = vinyl.band,
+                Price = vinyl.price
+            };
+
+            return vinylDTO;
+        }
+
+        public static IVinyl Map(VinylDTO vinyl)
+        {
+            return new Vinyl(vinyl.ID, vinyl.Title, vinyl.Band, vinyl.Price, vinyl.inStock);
+        }
+
         public static List<VinylDTO> MapVinylList(List<Vinyl> vinyls)
         {
             List<VinylDTO> vinylsDTO = new List<VinylDTO>();
@@ -44,7 +74,7 @@ namespace Logic
             return vinylsDTO;
         }
 
-        public static OrderDTO Map(Order order)
+        public static OrderDTO Map(IOrder order)
         {
             OrderDTO orderDTO = new OrderDTO
             {
@@ -59,6 +89,11 @@ namespace Logic
             };
 
             return orderDTO;
+        }
+
+        public static Order Map(OrderDTO order)
+        {
+            return new Order();
         }
     }
 }

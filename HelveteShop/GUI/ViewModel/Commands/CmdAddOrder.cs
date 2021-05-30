@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-using Logic;
+using ClientLogic;
 
 namespace ClientPresentation.ViewModel
 {
@@ -9,12 +9,12 @@ namespace ClientPresentation.ViewModel
         public event EventHandler CanExecuteChanged;
 
         private OrdersViewModel ordersViewModel = null;
-        private IOrdersManager ordersManager = null;
+        private IOrderService ordersManager = null;
 
         public CmdAddOrder(OrdersViewModel ovm)
         {
             ordersViewModel = ovm;
-            ordersManager = Logic.Logic.GetOrdersManager();
+            ordersManager = ClientLogic.Logic.GetOrdersManager();
         }
 
         public bool CanExecute(object parameter)
