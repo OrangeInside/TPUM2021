@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using ClientData;
 using ClientLogic;
-using CommonModel;
 using Moq;
 using NUnit.Framework;
 

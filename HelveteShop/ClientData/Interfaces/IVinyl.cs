@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommonModel
+namespace ClientData
 {
     public interface IVinyl : IData
     {

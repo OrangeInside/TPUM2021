@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CommonModel;
-using CommonModel;
+using ServerData;
 
 namespace ServerLogic
 {

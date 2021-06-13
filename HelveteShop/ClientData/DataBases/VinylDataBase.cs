@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
-using CommonModel;
 
 namespace ClientData
 {
