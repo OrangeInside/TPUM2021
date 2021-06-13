@@ -9,6 +9,19 @@ namespace ServerData
         private readonly DataContext dataContext;
         private readonly object itemLock = new object();
 
+        private static VinylDataBase instance;
+        public static VinylDataBase Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new VinylDataBase();
+
+                return instance;
+            }
+
+            private set => instance = value;
+        }
         public VinylDataBase()
         {
             this.dataContext = DataContext.Instance;

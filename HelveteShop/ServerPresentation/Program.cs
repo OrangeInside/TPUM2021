@@ -5,7 +5,7 @@ using ServerLogic;
 
 namespace ServerPresentation
 {
-    class Program
+    public class Program
     {
         private static WebSocketConnection CurrentConnection;
         private static readonly IVinylServices srvVinyls = new SrvVinyls();
@@ -16,6 +16,11 @@ namespace ServerPresentation
 
             Action<string> consoleLog = Console.WriteLine;
 
+            await CreateServer();
+        }
+
+        public static async Task CreateServer()
+        {
             await WebSocketServer.Server(8081, ConnectionHandler);
         }
 
