@@ -25,7 +25,7 @@ namespace ClientData
         {
             isAwaitingResponse = true;
 
-            await WebSocketClient.CurrentConnection.SendAsync("UpdateDataRequest");
+            await WebSocketClient.CurrentConnection.SendAsync(MessageParser.Create("UpdateDataRequest", "", "void"));
 
             while (isAwaitingResponse) { }
         }
@@ -46,24 +46,40 @@ namespace ClientData
 
         public void ReceiveData(string data)
         {
-            var split = data.Split('[');
-            if (string.Compare(split[0], "Vinyls", StringComparison.Ordinal) == 0)
-            {
-                lock (vinylsLock)
-                {
-                    Vinyls.Clear();
+            var msg = MessageParser.Deserialize(data);
 
-                    var toDeserialize = split[1].Insert(0, "[");
-                    var deserialized = JsonSerializer.Deserialize<List<Vinyl>>(toDeserialize);
-                    Vinyls = new List<IVinyl>(deserialized);
+            switch (msg.Command)
+            {
+                case "UpdateAll":
+
+                    var objectToList = MessageParser.DeserializeType<List<Vinyl>>(msg.Data.ToString());
+
+                    lock (vinylsLock)
+                    {
+                        Vinyls.Clear();
+
+                        Vinyls = new List<IVinyl>(objectToList);
+                    }
+
                     VinylsChanged?.Invoke();
-                }
+                    isAwaitingResponse = false;
+                    break;
 
-                isAwaitingResponse = false;
-            }
-            else if (string.Compare(split[0], "Confirm", StringComparison.Ordinal) == 0)
-            {
-                isAwaitingConfirmation = false;
+                case "Confirm":
+                    isAwaitingConfirmation = false;
+                    break;
+                case "OnNext":
+                    var receivedVinyl = MessageParser.DeserializeType<Vinyl>(msg.Data.ToString());
+
+                    var vinylToUpdate = Vinyls.Find((x) => x.ID == receivedVinyl.ID);
+
+                    lock (vinylsLock)
+                    {
+                        vinylToUpdate.InStock = receivedVinyl.InStock;
+                    }
+
+                    VinylsChanged?.Invoke();
+                    break;
             }
         }
 

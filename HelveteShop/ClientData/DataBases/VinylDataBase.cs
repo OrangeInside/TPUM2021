@@ -83,9 +83,21 @@ namespace ClientData
 
         public async Task<bool> Remove(int id, int count)
         {
-            await dataContext.RequestWithConfirmation($"RemoveVinyl:{id}:{count}");
+            for (int i = 0; i < count; i++)
+                await dataContext.RequestWithConfirmation(MessageParser.Create("RemoveVinyl", id, id.GetType().Name));
+
             await dataContext.RequestDataUpdate();
             return await Task.FromResult(true);
+        }
+
+        public async Task Subscribe(IVinyl vinyl)
+        {
+            await dataContext.RequestWithConfirmation(MessageParser.Create("Subscribe", vinyl, vinyl.GetType().Name));
+        }
+
+        public async Task Unsubscribe(IVinyl vinyl)
+        {
+            await dataContext.RequestWithConfirmation(MessageParser.Create("Unsubscribe", vinyl, vinyl.GetType().Name));
         }
     }
 }

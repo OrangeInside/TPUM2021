@@ -13,6 +13,9 @@ namespace ServerPresentation
         private static StockUpdater stockUpdater;
         private static TimeTracker timeTracker;
 
+        private static VinylTracker vinylTracker;
+        private static VinylObserver vinylObserver;
+
         static async Task Main(string[] args)
         {
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
@@ -25,6 +28,12 @@ namespace ServerPresentation
 
             stockUpdater.Subscribe(timeTracker, UpdateStock);
 
+            vinylTracker = new VinylTracker();
+
+            vinylObserver = new VinylObserver();
+
+            vinylObserver.Subscribe(vinylTracker, (x) => { _ = CurrentConnection.SendAsync(MessageParser.Create("OnNext", x, x.GetType().Name)); });
+
             await CreateServer();
         }
 
@@ -33,51 +42,76 @@ namespace ServerPresentation
             await WebSocketServer.Server(8081, ConnectionHandler);
         }
 
-        //private static Timer timer = null;
-
         static void ConnectionHandler(WebSocketConnection webSocketConnection)
         {
             CurrentConnection = webSocketConnection;
             webSocketConnection.onMessage = ParseMessage;
             webSocketConnection.onClose = () => { Console.WriteLine("[From Server]: Connection closed"); };
             webSocketConnection.onError = () => { Console.WriteLine("[From Server]: Connection error encountered"); };
-
-            //timer = new Timer(10000);
-            //timer.OnTimerReach += UpdateStock;
         }
+
+        private static VinylDTO vinylSubscr = null;
 
         static async void ParseMessage(string message)
         {
+            Message msg = MessageParser.Deserialize(message);
+
             Console.WriteLine($"[From Client]: {message}");
-            if (message.Contains("UpdateDataRequest"))
-            {
-                Console.WriteLine("[From Server]: Prepare data");
-                await SendVinyls();
-            }
-            else if (message.Contains("AddVinyl"))
-            {
-                var splited = message.Split(':');
-                int vinylID = Serializer.IntFromJson(splited[1]);
-                int vinylCount = Serializer.IntFromJson(splited[2]);
 
-                await srvVinyls.AddVinyl(vinylID, vinylCount);
-                await CurrentConnection.SendAsync("Confirm");
-            }
-            else if (message.Contains("RemoveVinyl"))
+            switch (msg.Command)
             {
-                var splited = message.Split(':');
-                int vinylID = Serializer.IntFromJson(splited[1]);
-                int vinylCount = Serializer.IntFromJson(splited[2]);
+                case "UpdateDataRequest":
+                    _ = UpdateEveryVinylSend();
+                    break;
+                case "AddVinyl":
+                    var vinylToAdd = MessageParser.DeserializeType<VinylDTO>(msg.Data.ToString());
+                    await srvVinyls.AddVinyl(vinylToAdd.ID, vinylToAdd.InStock);
+                    _ = ConfirmSend();
+                    break;
+                case "RemoveVinyl":
+                    var vinylToRemove = MessageParser.DeserializeType<int>(msg.Data.ToString());
 
-                await srvVinyls.RemoveStockVinyl(vinylID, vinylCount);
-                await CurrentConnection.SendAsync("Confirm");
+                    await srvVinyls.RemoveStockVinyl(vinylToRemove, 1);
+                    _ = ConfirmSend();
+                    break;
+                case "TimeInterval":
+                    float timeInterval = MessageParser.DeserializeType<float>(msg.Data.ToString());
+
+                    timeTracker.ProcessTimeInterval(timeInterval);
+                    break;
+                case "Subscribe":
+                    if (vinylSubscr == null)
+                    {
+                        vinylSubscr = MessageParser.DeserializeType<VinylDTO>(msg.Data.ToString());
+                        _ = Task.Run(() => RemoveOneVinylInTime());
+                        _ = ConfirmSend();
+                    }
+                    break;
+                case "Unsubscribe":
+                    var vinyl = MessageParser.DeserializeType<VinylDTO>(msg.Data.ToString());
+                    if (vinyl.ID == vinylSubscr.ID)
+                    {
+                        vinylSubscr = null;
+                        _ = ConfirmSend();
+                    }
+                    break;
             }
-            else if (message.Contains("TimeInterval"))
-            {
-                var splited = message.Split(':');
-                float timeInterval = Serializer.FloatFromJson(splited[1]);
+        }
 
-                timeTracker.ProcessTimeInterval(timeInterval);
+        static async Task RemoveOneVinylInTime()
+        {
+            while (vinylSubscr != null)
+            {
+                System.Threading.Thread.Sleep(5000);
+
+                if (vinylSubscr == null)
+                    continue;
+
+                await srvVinyls.RemoveStockVinyl(vinylSubscr.ID, 1);
+
+                var updatedVinyl = srvVinyls.GetVinyl(vinylSubscr.ID).Result;
+
+                vinylTracker.Track(DTOMapper.Map(updatedVinyl));
             }
         }
 
@@ -86,7 +120,8 @@ namespace ServerPresentation
             if (CurrentConnection != null)
             {
                 await srvVinyls.UpdateStock();
-                await SendVinyls();
+                await UpdateEveryVinylSend();
+                //await SendVinyls();
                 Console.WriteLine("[From Server]: Update vinyls in stock");
             }
         }
@@ -95,6 +130,17 @@ namespace ServerPresentation
         {
             await CurrentConnection.SendAsync(Serializer.AllDataToJson(srvVinyls));
             Console.WriteLine("[From Server]: Send Vinyls Data");
+        }
+
+        static async Task ConfirmSend()
+        {
+            await CurrentConnection.SendAsync(MessageParser.Create("Confirm", "", "void"));
+        }
+
+        static async Task UpdateEveryVinylSend()
+        {
+            var vinyls = srvVinyls.GetAllVinyls().Result;
+            await CurrentConnection.SendAsync(MessageParser.Create("UpdateAll", vinyls, vinyls.GetType().Name));
         }
     }
 }

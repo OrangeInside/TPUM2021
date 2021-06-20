@@ -131,7 +131,15 @@ namespace ClientPresentation.ViewModel
             get => selectedVinyl;
             set
             {
+                if (selectedVinyl != null)
+                {
+                    srvVinyl.Unsubscribe(selectedVinyl);
+                }
                 selectedVinyl = value;
+                if (selectedVinyl != null)
+                {
+                    srvVinyl.Subscribe(selectedVinyl);
+                }
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedVinyl"));
             }
         }

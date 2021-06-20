@@ -83,5 +83,15 @@ namespace ClientData
         {
             throw new NotImplementedException();
         }
+
+        public Task Subscribe(IClient vinyl)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Unsubscribe(IClient vinyl)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

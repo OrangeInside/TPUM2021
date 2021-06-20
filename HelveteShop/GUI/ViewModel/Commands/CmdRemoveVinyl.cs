@@ -23,8 +23,11 @@ namespace ClientPresentation.ViewModel
 
         public void Execute(object parameter)
         {
-            vinylsViewModel.SrvVinyl.RemoveVinyl(vinylsViewModel.SelectedVinyl.ID, 1);
-            vinylsViewModel?.ClearUserInputs();
+            if (vinylsViewModel.SelectedVinyl != null)
+            {
+                vinylsViewModel.SrvVinyl.RemoveVinyl(vinylsViewModel.SelectedVinyl.ID, 1);
+                vinylsViewModel?.ClearUserInputs();
+            }
         }
     }
 }

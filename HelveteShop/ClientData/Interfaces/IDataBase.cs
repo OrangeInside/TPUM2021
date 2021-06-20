@@ -15,5 +15,8 @@ namespace ClientData
 
         Task Refresh();
         event Action DataChanged;
+
+        Task Subscribe(T vinyl);
+        Task Unsubscribe(T vinyl);
     }
 }

@@ -15,5 +15,8 @@ namespace ClientLogic
         VinylDTO GetVinyl(int id);
         IEnumerable<VinylDTO> GetVinyls();
 
+        Task Subscribe(VinylDTO vinyl);
+        Task Unsubscribe(VinylDTO vinyl);
+
     }
 }

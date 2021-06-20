@@ -8,7 +8,7 @@ namespace ServerLogic
     {
         private IDisposable disposeSubscriber = null;
 
-        private float timeToUpdateStock = 5.0f;
+        private float timeToUpdateStock = 15.0f;
         private float currentTime = 0.0f;
 
         private Action updateStock = null;

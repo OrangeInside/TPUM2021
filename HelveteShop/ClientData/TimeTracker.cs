@@ -26,7 +26,7 @@ namespace ClientData
 
             while (isProcessingTime)
             {
-                await WebSocketClient.CurrentConnection.SendAsync($"TimeInterval:{1.0f}");
+                await WebSocketClient.CurrentConnection.SendAsync(MessageParser.Create("TimeInterval", 1.0f, 1.0f.GetType().Name));
 
                 System.Threading.Thread.Sleep(1000);
             }

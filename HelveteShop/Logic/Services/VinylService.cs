@@ -83,6 +83,16 @@ namespace ClientLogic
         {
             await vinylsDataBase.Remove(id, count);
         }
+
+        public async Task Subscribe(VinylDTO vinyl)
+        {
+            await vinylsDataBase.Subscribe(DTOMapper.Map(vinyl));
+        }
+
+        public async Task Unsubscribe(VinylDTO vinyl)
+        {
+            await vinylsDataBase.Unsubscribe(DTOMapper.Map(vinyl));
+        }
     }
 }
 
