@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="OPCUAModelDesign.xslt"?>
+<ModelDesign xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" TargetNamespace="http://opcfoundation.org/UA/" xmlns="http://opcfoundation.org/UA/ModelDesign.xsd">
+  <Namespaces>
+    <Namespace Name="ua" Prefix="Dependencies" XmlPrefix="ua">http://opcfoundation.org/UA/</Namespace>
+  </Namespaces>
+  <ObjectType xmlns:q1="http://opcfoundation.org/UA/" SymbolicName="q1:SClient" BaseType="q1:BaseObjectType">
+    <BrowseName>SClient</BrowseName>
+    <Children>
+      <Variable SymbolicName="q1:" TypeDefinition="q1:BaseVariableType" ModellingRule="None" DataType="q1:Int32" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>ID</BrowseName>
+      </Variable>
+      <Variable SymbolicName="q1:" TypeDefinition="q1:BaseVariableType" ModellingRule="None" DataType="q1:String" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>name</BrowseName>
+      </Variable>
+      <Variable SymbolicName="q1:" TypeDefinition="q1:BaseVariableType" ModellingRule="None" DataType="q1:String" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>address</BrowseName>
+      </Variable>
+    </Children>
+  </ObjectType>
+  <ObjectType xmlns:q2="http://opcfoundation.org/UA/" SymbolicName="q2:SVinyl" BaseType="q2:BaseObjectType">
+    <BrowseName>SVinyl</BrowseName>
+    <Children>
+      <Variable SymbolicName="q2:" TypeDefinition="q2:BaseVariableType" ModellingRule="None" DataType="q2:Int32" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>ID</BrowseName>
+      </Variable>
+      <Variable SymbolicName="q2:" TypeDefinition="q2:BaseVariableType" ModellingRule="None" DataType="q2:String" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>Title</BrowseName>
+      </Variable>
+      <Variable SymbolicName="q2:" TypeDefinition="q2:BaseVariableType" ModellingRule="None" DataType="q2:String" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>Band</BrowseName>
+      </Variable>
+      <Variable SymbolicName="q2:" TypeDefinition="q2:BaseVariableType" ModellingRule="None" DataType="q2:Decimal" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>Price</BrowseName>
+      </Variable>
+      <Variable SymbolicName="q2:" TypeDefinition="q2:BaseVariableType" ModellingRule="None" DataType="q2:Int32" ValueRank="Scalar" AccessLevel="Write" Historizing="false">
+        <BrowseName>InStock</BrowseName>
+      </Variable>
+    </Children>
+  </ObjectType>
+  <ObjectType xmlns:q3="http://opcfoundation.org/UA/" SymbolicName="q3:SOrder" BaseType="q3:BaseObjectType">
+    <BrowseName>SOrder</BrowseName>
+    <Children>
+      <Variable SymbolicName="q3:" TypeDefinition="q3:BaseVariableType" ModellingRule="None" DataType="q3:Int32" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>ID</BrowseName>
+      </Variable>
+      <Variable SymbolicName="q3:" TypeDefinition="q3:BaseVariableType" ModellingRule="None" DataType="q3:String" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>Vinyl</BrowseName>
+      </Variable>
+      <Variable SymbolicName="q3:" TypeDefinition="q3:BaseVariableType" ModellingRule="None" DataType="q3:String" ValueRank="Scalar" AccessLevel="ReadWrite" Historizing="false">
+        <BrowseName>Client</BrowseName>
+      </Variable>
+    </Children>
+  </ObjectType>
+</ModelDesign>

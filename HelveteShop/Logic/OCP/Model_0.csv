@@ -1,0 +1,14 @@
+SClient,9,ObjectType
+SClient_ID,10,Variable
+SClient_name,11,Variable
+SClient_address,12,Variable
+SVinyl,13,ObjectType
+SVinyl_ID,14,Variable
+SVinyl_Title,15,Variable
+SVinyl_Band,16,Variable
+SVinyl_Price,17,Variable
+SVinyl_InStock,18,Variable
+SOrder,19,ObjectType
+SOrder_ID,20,Variable
+SOrder_Vinyl,21,Variable
+SOrder_Client,22,Variable
