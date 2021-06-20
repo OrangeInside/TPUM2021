@@ -21,6 +21,8 @@ namespace ServerPresentation
 
             timeTracker = new TimeTracker();
 
+            stockUpdater = new StockUpdater();
+
             stockUpdater.Subscribe(timeTracker, UpdateStock);
 
             await CreateServer();

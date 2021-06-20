@@ -137,6 +137,7 @@ namespace ClientPresentation.ViewModel
             {
                 ConnectButtonText = "Disconnect";
                 OnConnectionEstablished?.Invoke();
+                Task.Run(timeTracker.StartTimer);
             }
             else
             {
@@ -150,6 +151,7 @@ namespace ClientPresentation.ViewModel
         {
             await serviceConnect.Disconnect();
             ConnectButtonText = "Connect";
+            timeTracker.StopTimer();
             OnConnectionLost?.Invoke();
         }
 
