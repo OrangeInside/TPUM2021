@@ -34,9 +34,14 @@ namespace IntegrationTests
         [Test]
         public void AddTest()
         {
-            vinylService.AddVinyl(new VinylDTO() { ID = 0, Title = "Test", Band = "Test", Price = 3.99M, inStock = 5 });
+            int vinylCount = vinylService.GetVinyl(0).inStock;
 
-            Assert.AreEqual(ClientData.VinylDataBase.Instance.Get(0).Band, ServerData.VinylDataBase.Instance.Get(0).Band);
+            vinylService.RemoveVinyl(0, 1);
+
+            Assert.AreEqual(vinylCount - 1, vinylService.GetVinyl(0).inStock);
+            Assert.AreEqual(vinylCount - 1, ServerData.VinylDataBase.Instance.Get(0).InStock);
+
+            Assert.IsTrue(true);
         }
 
         [Test]
