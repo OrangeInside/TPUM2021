@@ -22,6 +22,11 @@ namespace ServerPresentation
             return stringToReturn;
         }
 
+        public static float FloatFromJson(string json)
+        {
+            return JsonSerializer.Deserialize<float>(json);
+        }
+
         public static int IntFromJson(string json)
         {
             return JsonSerializer.Deserialize<int>(json);

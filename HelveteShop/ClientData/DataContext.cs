@@ -39,6 +39,11 @@ namespace ClientData
             while (isAwaitingConfirmation) { }
         }
 
+        public async Task RequestWithoutConfirmation(string request)
+        {
+            await WebSocketClient.CurrentConnection.SendAsync(request);
+        }
+
         public void ReceiveData(string data)
         {
             var split = data.Split('[');

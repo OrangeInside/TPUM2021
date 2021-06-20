@@ -10,11 +10,18 @@ namespace ServerPresentation
         private static WebSocketConnection CurrentConnection;
         private static readonly IVinylServices srvVinyls = new SrvVinyls();
 
+        private static StockUpdater stockUpdater;
+        private static TimeTracker timeTracker;
+
         static async Task Main(string[] args)
         {
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
             Action<string> consoleLog = Console.WriteLine;
+
+            timeTracker = new TimeTracker();
+
+            stockUpdater.Subscribe(timeTracker, UpdateStock);
 
             await CreateServer();
         }
@@ -24,7 +31,7 @@ namespace ServerPresentation
             await WebSocketServer.Server(8081, ConnectionHandler);
         }
 
-        private static Timer timer = null;
+        //private static Timer timer = null;
 
         static void ConnectionHandler(WebSocketConnection webSocketConnection)
         {
@@ -33,8 +40,8 @@ namespace ServerPresentation
             webSocketConnection.onClose = () => { Console.WriteLine("[From Server]: Connection closed"); };
             webSocketConnection.onError = () => { Console.WriteLine("[From Server]: Connection error encountered"); };
 
-            timer = new Timer(10000);
-            timer.OnTimerReach += UpdateStock;
+            //timer = new Timer(10000);
+            //timer.OnTimerReach += UpdateStock;
         }
 
         static async void ParseMessage(string message)
@@ -62,6 +69,13 @@ namespace ServerPresentation
 
                 await srvVinyls.RemoveStockVinyl(vinylID, vinylCount);
                 await CurrentConnection.SendAsync("Confirm");
+            }
+            else if (message.Contains("TimeInterval"))
+            {
+                var splited = message.Split(':');
+                float timeInterval = Serializer.FloatFromJson(splited[1]);
+
+                timeTracker.ProcessTimeInterval(timeInterval);
             }
         }
 

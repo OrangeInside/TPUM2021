@@ -11,6 +11,7 @@ namespace ClientPresentation.ViewModel
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         private readonly IConnectionSerivce serviceConnect;
+        private readonly ISrvTimeTracker timeTracker;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public static event Action OnConnectionEstablished;
@@ -38,6 +39,7 @@ namespace ClientPresentation.ViewModel
         public MainWindowViewModel()
         {
             serviceConnect = new SrvConnect();
+            timeTracker = new SrvTimeTracker();
 
             Clients = new CmdLoadPage(this, "View/Clients.xaml");
             Orders = new CmdLoadPage(this, "View/Orders.xaml");
