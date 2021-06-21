@@ -1,10 +1,12 @@
 <xs:schema
+  xmlns:Helvete="http://Helvete.org/UA/"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:ua="http://opcfoundation.org/UA/2008/02/Types.xsd"
   xmlns:tns="http://opcfoundation.org/UA/"
   targetNamespace="http://opcfoundation.org/UA/"
   elementFormDefault="qualified"
 >
+  <xs:import namespace="http://Helvete.org/UA/" />
   <xs:element name="Boolean" nillable="true" type="xs:boolean" />
 
   <xs:complexType name="ListOfBoolean">

@@ -1,4 +1,5 @@
 <opc:TypeDictionary
+  xmlns:Helvete="http://Helvete.org/UA/"
   xmlns:opc="http://opcfoundation.org/BinarySchema/"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:ua="http://opcfoundation.org/UA/"
@@ -6,7 +7,8 @@
   DefaultByteOrder="LittleEndian"
   TargetNamespace="http://opcfoundation.org/UA/"
 >
-  <!-- This File was generated on 2021-06-20 and supports the specifications supported by version 1.11.335.10 of the OPC UA deliverables. -->
+  <!-- This File was generated on 2021-06-21 and supports the specifications supported by version 1.11.335.10 of the OPC UA deliverables. -->
+  <opc:Import Namespace="http://Helvete.org/UA/" Location="Dependencies.BinarySchema.bsd"/>
 
   <opc:Import Namespace="http://opcfoundation.org/BinarySchema/" />
 

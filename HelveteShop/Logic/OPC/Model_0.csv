@@ -9,6 +9,6 @@ SVinyl_Band,16,Variable
 SVinyl_Price,17,Variable
 SVinyl_InStock,18,Variable
 SOrder,19,ObjectType
-SOrder_ID,20,Variable
-SOrder_Vinyl,21,Variable
+SOrder_Vinyl,20,Variable
+SOrder_ID,21,Variable
 SOrder_Client,22,Variable

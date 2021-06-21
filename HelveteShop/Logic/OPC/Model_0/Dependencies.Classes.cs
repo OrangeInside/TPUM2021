@@ -32,6 +32,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.Runtime.Serialization;
+using Dependencies;
 using Opc.Ua;
 
 namespace Dependencies
@@ -110,14 +111,14 @@ namespace Dependencies
         public const uint SVinyl_InStock = 18;
 
         /// <summary>
-        /// The identifier for the SOrder_ID Variable.
-        /// </summary>
-        public const uint SOrder_ID = 20;
-
-        /// <summary>
         /// The identifier for the SOrder_Vinyl Variable.
         /// </summary>
-        public const uint SOrder_Vinyl = 21;
+        public const uint SOrder_Vinyl = 20;
+
+        /// <summary>
+        /// The identifier for the SOrder_ID Variable.
+        /// </summary>
+        public const uint SOrder_ID = 21;
 
         /// <summary>
         /// The identifier for the SOrder_Client Variable.
@@ -200,14 +201,14 @@ namespace Dependencies
         public static readonly NodeId SVinyl_InStock = new NodeId(Dependencies.Variables.SVinyl_InStock);
 
         /// <summary>
-        /// The identifier for the SOrder_ID Variable.
-        /// </summary>
-        public static readonly NodeId SOrder_ID = new NodeId(Dependencies.Variables.SOrder_ID);
-
-        /// <summary>
         /// The identifier for the SOrder_Vinyl Variable.
         /// </summary>
         public static readonly NodeId SOrder_Vinyl = new NodeId(Dependencies.Variables.SOrder_Vinyl);
+
+        /// <summary>
+        /// The identifier for the SOrder_ID Variable.
+        /// </summary>
+        public static readonly NodeId SOrder_ID = new NodeId(Dependencies.Variables.SOrder_ID);
 
         /// <summary>
         /// The identifier for the SOrder_Client Variable.
@@ -222,65 +223,6 @@ namespace Dependencies
     /// </summary>
     public static partial class BrowseNames
     {
-        /// <summary>
-        /// The BrowseName for the address component.
-        /// </summary>
-        public const string address = "address";
-
-        /// <summary>
-        /// The BrowseName for the Band component.
-        /// </summary>
-        public const string Band = "Band";
-
-        /// <summary>
-        /// The BrowseName for the Client component.
-        /// </summary>
-        public const string Client = "Client";
-
-        /// <summary>
-        /// The BrowseName for the ID component.
-        /// </summary>
-        public const string ID = "ID";
-
-        /// <summary>
-        /// The BrowseName for the InStock component.
-        /// </summary>
-        public const string InStock = "InStock";
-
-        /// <summary>
-        /// The BrowseName for the name component.
-        /// </summary>
-        public const string name = "name";
-
-        /// <summary>
-        /// The BrowseName for the Price component.
-        /// </summary>
-        public const string Price = "Price";
-
-        /// <summary>
-        /// The BrowseName for the SClient component.
-        /// </summary>
-        public const string SClient = "SClient";
-
-        /// <summary>
-        /// The BrowseName for the SOrder component.
-        /// </summary>
-        public const string SOrder = "SOrder";
-
-        /// <summary>
-        /// The BrowseName for the SVinyl component.
-        /// </summary>
-        public const string SVinyl = "SVinyl";
-
-        /// <summary>
-        /// The BrowseName for the Title component.
-        /// </summary>
-        public const string Title = "Title";
-
-        /// <summary>
-        /// The BrowseName for the Vinyl component.
-        /// </summary>
-        public const string Vinyl = "Vinyl";
     }
     #endregion
 
@@ -294,7 +236,218 @@ namespace Dependencies
         /// The URI for the ua namespace (.NET code namespace is 'Dependencies').
         /// </summary>
         public const string ua = "http://opcfoundation.org/UA/";
+
+        /// <summary>
+        /// The URI for the Helvete namespace (.NET code namespace is 'Dependencies').
+        /// </summary>
+        public const string Helvete = "http://Helvete.org/UA/";
     }
     #endregion
 
+    #region SClientState Class
+    #if (!OPCUA_EXCLUDE_SClientState)
+    /// <summary>
+    /// Stores an instance of the SClient ObjectType.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    public partial class SClientState : BaseObjectState
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the type with its default attribute values.
+        /// </summary>
+        public SClientState(NodeState parent) : base(parent)
+        {
+        }
+
+        /// <summary>
+        /// Returns the id of the default type definition node for the instance.
+        /// </summary>
+        protected override NodeId GetDefaultTypeDefinitionId(NamespaceTable namespaceUris)
+        {
+            return Opc.Ua.NodeId.Create(Dependencies.ObjectTypes.SClient, Dependencies.Namespaces.Helvete, namespaceUris);
+        }
+
+        #if (!OPCUA_EXCLUDE_InitializationStrings)
+        /// <summary>
+        /// Initializes the instance.
+        /// </summary>
+        protected override void Initialize(ISystemContext context)
+        {
+            Initialize(context, InitializationString);
+            InitializeOptionalChildren(context);
+        }
+
+        protected override void Initialize(ISystemContext context, NodeState source)
+        {
+            InitializeOptionalChildren(context);
+            base.Initialize(context, source);
+        }
+
+        /// <summary>
+        /// Initializes the any option children defined for the instance.
+        /// </summary>
+        protected override void InitializeOptionalChildren(ISystemContext context)
+        {
+            base.InitializeOptionalChildren(context);
+        }
+
+        #region Initialization String
+        private const string InitializationString =
+           "AQAAABYAAABodHRwOi8vSGVsdmV0ZS5vcmcvVUEv/////wRggAABAAAAAQAPAAAAU0NsaWVudEluc3Rh" +
+           "bmNlAQEJAAEBCQD/////AAAAAA==";
+        #endregion
+        #endif
+        #endregion
+
+        #region Public Properties
+        #endregion
+
+        #region Overridden Methods
+        #endregion
+
+        #region Private Fields
+        #endregion
+    }
+    #endif
+    #endregion
+
+    #region SVinylState Class
+    #if (!OPCUA_EXCLUDE_SVinylState)
+    /// <summary>
+    /// Stores an instance of the SVinyl ObjectType.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    public partial class SVinylState : BaseObjectState
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the type with its default attribute values.
+        /// </summary>
+        public SVinylState(NodeState parent) : base(parent)
+        {
+        }
+
+        /// <summary>
+        /// Returns the id of the default type definition node for the instance.
+        /// </summary>
+        protected override NodeId GetDefaultTypeDefinitionId(NamespaceTable namespaceUris)
+        {
+            return Opc.Ua.NodeId.Create(Dependencies.ObjectTypes.SVinyl, Dependencies.Namespaces.Helvete, namespaceUris);
+        }
+
+        #if (!OPCUA_EXCLUDE_InitializationStrings)
+        /// <summary>
+        /// Initializes the instance.
+        /// </summary>
+        protected override void Initialize(ISystemContext context)
+        {
+            Initialize(context, InitializationString);
+            InitializeOptionalChildren(context);
+        }
+
+        protected override void Initialize(ISystemContext context, NodeState source)
+        {
+            InitializeOptionalChildren(context);
+            base.Initialize(context, source);
+        }
+
+        /// <summary>
+        /// Initializes the any option children defined for the instance.
+        /// </summary>
+        protected override void InitializeOptionalChildren(ISystemContext context)
+        {
+            base.InitializeOptionalChildren(context);
+        }
+
+        #region Initialization String
+        private const string InitializationString =
+           "AQAAABYAAABodHRwOi8vSGVsdmV0ZS5vcmcvVUEv/////wRggAABAAAAAQAOAAAAU1ZpbnlsSW5zdGFu" +
+           "Y2UBAQ0AAQENAP////8AAAAA";
+        #endregion
+        #endif
+        #endregion
+
+        #region Public Properties
+        #endregion
+
+        #region Overridden Methods
+        #endregion
+
+        #region Private Fields
+        #endregion
+    }
+    #endif
+    #endregion
+
+    #region SOrderState Class
+    #if (!OPCUA_EXCLUDE_SOrderState)
+    /// <summary>
+    /// Stores an instance of the SOrder ObjectType.
+    /// </summary>
+    /// <exclude />
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Opc.Ua.ModelCompiler", "1.0.0.0")]
+    public partial class SOrderState : BaseObjectState
+    {
+        #region Constructors
+        /// <summary>
+        /// Initializes the type with its default attribute values.
+        /// </summary>
+        public SOrderState(NodeState parent) : base(parent)
+        {
+        }
+
+        /// <summary>
+        /// Returns the id of the default type definition node for the instance.
+        /// </summary>
+        protected override NodeId GetDefaultTypeDefinitionId(NamespaceTable namespaceUris)
+        {
+            return Opc.Ua.NodeId.Create(Dependencies.ObjectTypes.SOrder, Dependencies.Namespaces.Helvete, namespaceUris);
+        }
+
+        #if (!OPCUA_EXCLUDE_InitializationStrings)
+        /// <summary>
+        /// Initializes the instance.
+        /// </summary>
+        protected override void Initialize(ISystemContext context)
+        {
+            Initialize(context, InitializationString);
+            InitializeOptionalChildren(context);
+        }
+
+        protected override void Initialize(ISystemContext context, NodeState source)
+        {
+            InitializeOptionalChildren(context);
+            base.Initialize(context, source);
+        }
+
+        /// <summary>
+        /// Initializes the any option children defined for the instance.
+        /// </summary>
+        protected override void InitializeOptionalChildren(ISystemContext context)
+        {
+            base.InitializeOptionalChildren(context);
+        }
+
+        #region Initialization String
+        private const string InitializationString =
+           "AQAAABYAAABodHRwOi8vSGVsdmV0ZS5vcmcvVUEv/////wRggAABAAAAAQAOAAAAU09yZGVySW5zdGFu" +
+           "Y2UBARMAAQETAP////8AAAAA";
+        #endregion
+        #endif
+        #endregion
+
+        #region Public Properties
+        #endregion
+
+        #region Overridden Methods
+        #endregion
+
+        #region Private Fields
+        #endregion
+    }
+    #endif
+    #endregion
 }
